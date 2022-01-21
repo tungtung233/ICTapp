@@ -1,15 +1,36 @@
 import * as React from "react";
-import { Header } from "react-native-elements";
-import { SafeAreaProvider } from "react-native-safe-area-context";
+import { View, StyleSheet, Image } from "react-native";
+
+import { Ionicons } from "@expo/vector-icons";
+
+const styles = StyleSheet.create({
+  container: {
+    height: 40,
+    flexDirection: "row",
+    alignContent: "center",
+    alignItems: "center",
+    borderTopWidth: 1,
+    borderColor: "grey",
+    justifyContent: "space-between",
+  },
+  ictLogo: {
+    width: 43,
+    height: 30,
+    marginLeft: 15,
+  },
+  menu: {
+    marginRight: 15,
+  },
+});
 
 export default function Navbar() {
   return (
-    <Header
-      centerComponent={{
-        text: "MY TITLE",
-        style: { color: "#fff" },
-      }}
-      placement="center"
-    />
+    <View style={styles.container}>
+      <Image
+        source={require("../../assets/ICT-Logo.png")}
+        style={styles.ictLogo}
+      />
+      <Ionicons name="md-menu" size={34} color="darkgrey" style={styles.menu} />
+    </View>
   );
 }
