@@ -12,6 +12,9 @@ const styles = StyleSheet.create({
     borderTopWidth: 1,
     borderColor: "grey",
     justifyContent: "space-between",
+    elevation: 20,
+    shadowColor: "#52006A",
+    backgroundColor: "white",
   },
   ictLogo: {
     width: 43,
