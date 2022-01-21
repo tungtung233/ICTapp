@@ -1,4 +1,4 @@
-import * as React from "react";
+import React, { useState } from "react";
 import { View, StyleSheet, Image } from "react-native";
 
 import { Ionicons } from "@expo/vector-icons";
@@ -27,13 +27,25 @@ const styles = StyleSheet.create({
 });
 
 export default function Navbar() {
+  const [dropMenu, setDropMenu] = useState(false);
+
+  const handleDropMenu = () => {
+    setDropMenu(() => !dropMenu);
+  };
+
   return (
     <View style={styles.container}>
       <Image
         source={require("../../assets/ICT-Logo.png")}
         style={styles.ictLogo}
       />
-      <Ionicons name="md-menu" size={34} color="darkgrey" style={styles.menu} />
+      <Ionicons
+        name="md-menu"
+        size={34}
+        color="darkgrey"
+        style={styles.menu}
+        onPress={handleDropMenu}
+      />
     </View>
   );
 }
