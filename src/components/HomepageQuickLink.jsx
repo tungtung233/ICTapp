@@ -5,21 +5,22 @@ const { width } = Dimensions.get('window');
 export default function HomepageQuickLink({ title, jpgLocation }) {
   return (
     <ImageBackground source={jpgLocation} style={styles.image}>
-      <Text>{title}</Text>
+      <Text style={styles.title}>{title}</Text>
     </ImageBackground>
   );
 }
 
 const styles = StyleSheet.create({
   image: {
-    borderWidth: 2,
-    borderColor: 'black',
-    borderRadius: 50,
-    width: width * 0.35,
-    height: width * 0.35,
+    borderRadius: 15,
+    width: width * 0.45,
+    height: width * 0.36,
     justifyContent: 'center',
     alignItems: 'center',
     overflow: 'hidden',
-    margin: 15,
+    margin: 6,
   },
+  title: {
+    fontSize: 20
+  }
 });
