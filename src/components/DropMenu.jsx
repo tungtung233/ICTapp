@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   dropMenu: {
     backgroundColor: 'white',
     position: 'absolute',
-    top: 65,
+    top: 90,
     left: 0,
     elevation: 25,
     shadowColor: '#fff',
