@@ -7,29 +7,49 @@ import {
   Dimensions,
 } from 'react-native';
 
+import AppLoading from 'expo-app-loading';
+import {
+  useFonts,
+  Inter_400Regular,
+  Inter_500Medium,
+} from '@expo-google-fonts/inter';
+
 const { width } = Dimensions.get('window');
 
 export default function MembershipPage() {
-  return (
-    <ScrollView style={styles.membershipPage}>
-      <View style={styles.header}>
-        <ImageBackground
-          source={require('../../assets/test-square.jpg')}
-          style={styles.membershipImage}
-        >
-          <Text style={styles.membershipImageTitle}>Membership</Text>
-        </ImageBackground>
-      </View>
-      <Text style={styles.d3}>Private.</Text>
-      <Text style={styles.d3}>Online.</Text>
-      <Text style={styles.s2}>
-        Designed to provide the support you need right now.
-      </Text>
-      <Text style={styles.b2}>
-        A job search is a marathon, not a sprint. It's hard work and often lonely. Our community provides a supportive, safe and empowering fellowship.
-      </Text>
-    </ScrollView>
-  );
+  let [fontsLoaded] = useFonts({
+    Inter_400Regular,
+    Inter_500Medium,
+  });
+
+  if (!fontsLoaded) {
+    return <AppLoading />;
+  } else {
+    return (
+      <ScrollView style={styles.membershipPage}>
+        <View style={styles.header}>
+          <ImageBackground
+            source={require('../../assets/test-square.jpg')}
+            style={styles.membershipImage}
+          >
+            <Text style={styles.membershipImageTitle}>Membership</Text>
+          </ImageBackground>
+        </View>
+        <View style={styles.membershipIntro}>
+          <Text style={styles.membershipIntroTitle}>Private.</Text>
+          <Text style={styles.membershipIntroTitle}>Online.</Text>
+          <Text style={styles.membershipIntroSubheading}>
+            Designed to provide the support you need right now.
+          </Text>
+          <Text style={styles.membershipIntroDesc}>
+            A job search is a marathon, not a sprint. It's hard work and often
+            lonely. Our community provides a supportive, safe and empowering
+            fellowship.
+          </Text>
+        </View>
+      </ScrollView>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
@@ -41,6 +61,7 @@ const styles = StyleSheet.create({
   },
   membershipImage: {
     margin: 30,
+    marginBottom: 50,
     justifyContent: 'flex-end',
     alignItems: 'center',
     height: 190,
@@ -49,21 +70,30 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   membershipImageTitle: {
-    fontSize: 50,
+    fontSize: 45,
+    lineHeight: 52,
     color: 'white',
     marginBottom: 20,
+    fontFamily: 'Inter_400Regular',
   },
-  d3: {
-    fontSize: 52,
+  membershipIntro: {
     paddingHorizontal: 20,
   },
-  s2: {
-    fontSize: 20,
-    paddingHorizontal: 20,
+  membershipIntroTitle: {
+    fontSize: 45,
+    lineHeight: 52,
+    paddingVertical: -5,
+    fontFamily: 'Inter_400Regular',
   },
-  b2: {
-    fontSize: 20,
-    paddingHorizontal: 20,
+  membershipIntroSubheading: {
+    fontSize: 19,
+    fontFamily: 'Inter_500Medium',
+    lineHeight: 28,
+  },
+  membershipIntroDesc: {
+    fontSize: 19,
     paddingTop: 15,
+    lineHeight: 28,
+    fontFamily: 'Inter_400Regular',
   },
 });
