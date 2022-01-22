@@ -3,17 +3,20 @@ import { StyleSheet, Text, View } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 import Navbar from './src/components/Navbar';
-// import SignUp from './src/components/SignUp';
 import EventsPage from './src/components/EventsPage';
+import Button from './src/components/Button';
+import Homepage from './src/components/Homepage';
+
 
 export default function App() {
   return (
     <SafeAreaView>
       <Navbar />
       <View style={styles.container}>
-        {/* <SignUp /> */}
         <EventsPage />
-        <StatusBar style="auto" />
+        <Homepage />
+        <StatusBar style='auto' />
+
       </View>
     </SafeAreaView>
   );
