@@ -16,6 +16,8 @@ import EventsPage from './src/components/EventsPage';
 import Homepage from './src/components/Homepage';
 import MembershipPage from './src/components/MembershipPage';
 import EventDetailPage from './src/components/EventDetailsPage';
+import PhoneCall from './src/components/PhoneCall';
+import PhoneSMS from './src/components/PhoneSMS';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -28,8 +30,10 @@ export default function App() {
     <SafeAreaView>
       <Navbar />
       <View style={styles.container}>
-        <MembershipPage />
-        <EventDetailPage />
+        <PhoneCall />
+        <PhoneSMS />
+        {/* <MembershipPage /> */}
+        {/* <EventDetailPage /> */}
         {/* <EventsPage /> */}
         {/* <Homepage /> */}
         {/* <StatusBar style='auto' /> */}
