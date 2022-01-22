@@ -1,12 +1,12 @@
-import React, { useState } from "react";
-import { Dimensions, StyleSheet, Text, View } from "react-native";
-import { CheckBox } from "react-native-elements";
+import React, { useState } from 'react';
+import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import { CheckBox } from 'react-native-elements';
 
-import Button from "./Button";
-import Input from "./Input";
+import Button from './Button';
+import Input from './Input';
 
-const { width } = Dimensions.get("window");
-const title = "Sign Up";
+const { width } = Dimensions.get('window');
+const title = 'Sign Up';
 const tip =
   "Become a member - you'll enjoy exclusive content, invites, and rewards.";
 
@@ -15,7 +15,7 @@ const SignUp = ({ params }) => {
 
   const handleCheck = () => {
     setIsChecked(() => !isChecked);
-  }
+  };
 
   return (
     <View style={styles.container}>
@@ -48,7 +48,7 @@ const SignUp = ({ params }) => {
           checkedColor="green"
           onPress={handleCheck}
           checked={isChecked}
-          containerStyle={{ backgroundColor: "transparent" }}
+          containerStyle={{ backgroundColor: 'transparent' }}
           title={<Text style={{ fontSize: 16 }}>Subscribe to newsletter</Text>}
         />
       </View>
@@ -64,10 +64,10 @@ const styles = StyleSheet.create({
     marginTop: 15,
   },
   container: {
-    height: "100%",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
-    backgroundColor: "#f0f0f0",
+    height: '100%',
+    justifyContent: 'flex-start',
+    alignItems: 'flex-start',
+    backgroundColor: '#f0f0f0',
     paddingLeft: 20,
     paddingRight: 20,
     marginTop: 20,
@@ -75,35 +75,35 @@ const styles = StyleSheet.create({
   },
   input: {
     marginTop: 15,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   line: {
-    borderBottomColor: "#808080",
+    borderBottomColor: '#808080',
     borderBottomWidth: 1,
-    alignSelf: "stretch",
+    alignSelf: 'stretch',
     width: width - 60,
     margin: 10,
   },
   promise: {
-    color: "#808080",
+    color: '#808080',
   },
   text: {
     marginTop: 15,
-    justifyContent: "center",
-    alignItems: "center",
+    justifyContent: 'center',
+    alignItems: 'center',
     marginLeft: 10,
     fontSize: 16,
   },
   tipText: {
     marginTop: 15,
-    color: "black",
-    fontFamily: "",
+    color: 'black',
+    fontFamily: '',
     fontSize: 16,
   },
   titleText: {
-    color: "black",
-    fontFamily: "",
+    color: 'black',
+    fontFamily: '',
     fontSize: 22,
   },
 });
