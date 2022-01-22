@@ -6,7 +6,7 @@ import { events } from '../../constants/dummy';
 
 const EventsPage = () => (
   <View style={styles.container}>
-    <View style={{ padding: 13 }} />
+    <View style={{ padding: 15 }} />
     <View>
       <Text style={styles.titleText}>Workshops &amp; Events</Text>
     </View>
@@ -22,7 +22,9 @@ const styles = StyleSheet.create({
   },
   titleText: {
     color: 'black',
-    fontSize: 25,
+    fontSize: 24,
+    lineHeight: 30,
+    fontWeight: 'normal',
   },
 });
 
