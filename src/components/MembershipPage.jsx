@@ -56,7 +56,7 @@ export default function MembershipPage() {
             {`Monday, October 18 \n2 P.M EDT as part of the WIN series`}
           </Text>
         </View>
-        <View style={{marginTop: 30, alignItems: 'center'}}>
+        <View style={{ marginTop: 30, alignItems: 'center' }}>
           <Button
             buttonStyle={{
               width: 194,
@@ -68,10 +68,19 @@ export default function MembershipPage() {
           ></Button>
         </View>
         <View style={styles.benefits}>
-            <Text style={styles.benefitsHeading}>
-              Member benefits include:
-            </Text>
-            <MembershipBenefits />
+          <Text style={styles.benefitsHeading}>Member benefits include:</Text>
+          <MembershipBenefits />
+        </View>
+        <View style={{ marginTop: 30, alignItems: 'center' }}>
+          <Button
+            buttonStyle={{
+              width: 194,
+              height: 47,
+              borderRadius: 10,
+              backgroundColor: 'grey',
+            }}
+            title='Become a member'
+          ></Button>
         </View>
         <Text>{`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n`}</Text>
       </ScrollView>
