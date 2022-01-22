@@ -66,7 +66,12 @@ export default function MembershipPage() {
             title='Become a member'
           ></Button>
         </View>
-        <Text>{`\n\n\n\n`}</Text>
+        <View style={styles.benefits}>
+            <Text style={styles.benefitsHeading}>
+              Member benefits include:
+            </Text>
+        </View>
+        <Text>{`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n`}</Text>
       </ScrollView>
     );
   }
@@ -128,6 +133,15 @@ const styles = StyleSheet.create({
   orientationDate: {
     fontSize: 24,
     fontFamily: 'Inter_500Medium',
+    lineHeight: 34,
+  },
+  benefits: {
+    paddingHorizontal: 20,
+    paddingTop: 50,
+  },
+  benefitsHeading: {
+    fontSize: 30,
+    fontFamily: 'Inter_400Regular',
     lineHeight: 34,
   },
 });
