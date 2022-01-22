@@ -1,7 +1,5 @@
-import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Text } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import React, { useState } from 'react';
+import { View, Image } from 'react-native';
 import AppLoading from 'expo-app-loading';
 
 import {
@@ -12,7 +10,10 @@ import {
   Inter_700Bold,
 } from '@expo-google-fonts/inter';
 
-import Navbar from './src/components/Navbar';
+import { Ionicons } from '@expo/vector-icons';
+import { Feather } from '@expo/vector-icons';
+
+import DropMenu from './src/components/DropMenu';
 import EventsPage from './src/components/EventsPage';
 import Homepage from './src/components/Homepage';
 import MembershipPage from './src/components/MembershipPage';
@@ -33,15 +34,55 @@ export default function App() {
     Inter_600SemiBold,
     Inter_700Bold,
   });
+
+  function LogoTitle() {
+    return (
+      <Image
+        style={{ width: 43, height: 30 }}
+        source={require('./assets/ICT-Logo.png')}
+      />
+    );
+  }
+
+  const [showDropMenu, setShowDropMenu] = useState(false);
+
+  const handleDropMenu = () => {
+    setShowDropMenu(() => !showDropMenu);
+  };
+
+  function BurgerMenu() {
+    return (
+      <>
+        <View>
+          {!showDropMenu ? (
+            <Ionicons
+              name='md-menu'
+              size={34}
+              color='darkgrey'
+              onPress={handleDropMenu}
+            />
+          ) : (
+            <Feather
+              name='x'
+              size={25}
+              color='darkgrey'
+              onPress={handleDropMenu}
+            />
+          )}
+        </View>
+      </>
+    );
+  }
+
   return fontsLoaded ? (
     <NavigationContainer>
-      <SafeAreaView>
-        <Navbar />
-      </SafeAreaView>
+      {showDropMenu && <DropMenu />}
       <Stack.Navigator
         initialRouteName='Homepage'
         screenOptions={{
-          headerShown: false,
+          headerLeft: (props) => <LogoTitle {...props} />,
+          headerTitleStyle: { color: 'white' },
+          headerRight: (props) => <BurgerMenu {...props} />,
         }}
       >
         <Stack.Screen name='Homepage' component={Homepage} />
@@ -50,19 +91,8 @@ export default function App() {
         <Stack.Screen name='Community' component={MembershipPage} />
         <Stack.Screen name='SignUp' component={SignUp} />
       </Stack.Navigator>
-      {/* <View style={styles.container}></View> */}
     </NavigationContainer>
   ) : (
     <AppLoading />
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    backgroundColor: '#f0f0f0',
-    // alignItems: 'center',
-    // justifyContent: 'center',
-    // flex: 1,
-    color: 'black',
-  },
-});

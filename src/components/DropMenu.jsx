@@ -19,7 +19,7 @@ export default function DropMenu() {
       <Divider width={1} style={styles.divider} />
       <Text style={styles.menuItem}>Resources</Text>
       <View style={styles.menuHome}>
-        <Ionicons name="home" size={24} color="black" style={styles.divider} />
+        <Ionicons name='home' size={24} color='black' style={styles.divider} />
       </View>
     </View>
   );
@@ -29,7 +29,7 @@ const styles = StyleSheet.create({
   dropMenu: {
     backgroundColor: 'white',
     position: 'absolute',
-    top: 90,
+    top: 106,
     left: 0,
     elevation: 25,
     shadowColor: '#fff',
