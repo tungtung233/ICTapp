@@ -13,6 +13,7 @@ import {
   Inter_500Medium,
 } from '@expo-google-fonts/inter';
 import { Button } from 'react-native-elements';
+import MembershipBenefits from './MembershipBenefits';
 
 const { width } = Dimensions.get('window');
 
@@ -70,6 +71,7 @@ export default function MembershipPage() {
             <Text style={styles.benefitsHeading}>
               Member benefits include:
             </Text>
+            <MembershipBenefits />
         </View>
         <Text>{`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n`}</Text>
       </ScrollView>
