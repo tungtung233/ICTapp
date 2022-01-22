@@ -1,24 +1,34 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StyleSheet, View, Text } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+import AppLoading from 'expo-app-loading';
+import {
+  useFonts,
+  Inter_400Regular,
+  Inter_500Medium,
+} from '@expo-google-fonts/inter';
 
 import Navbar from './src/components/Navbar';
 import EventsPage from './src/components/EventsPage';
-import Button from './src/components/Button';
 import Homepage from './src/components/Homepage';
 
-
 export default function App() {
-  return (
+  let [fontsLoaded] = useFonts({
+    Inter_400Regular,
+    Inter_500Medium,
+  });
+  return fontsLoaded ? (
     <SafeAreaView>
       <Navbar />
       <View style={styles.container}>
         <EventsPage />
         <Homepage />
-        <StatusBar style='auto' />
-
+        <StatusBar style="auto" />
       </View>
     </SafeAreaView>
+  ) : (
+    <AppLoading />
   );
 }
 
