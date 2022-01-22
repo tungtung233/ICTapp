@@ -28,7 +28,7 @@ export default function MembershipPage() {
     return <AppLoading />;
   } else {
     return (
-      <ScrollView style={styles.membershipPage}>
+      <ScrollView>
         <View style={styles.header}>
           <ImageBackground
             source={require('../../assets/test-square.jpg')}
@@ -96,18 +96,15 @@ export default function MembershipPage() {
 }
 
 const styles = StyleSheet.create({
-  membershipPage: {
-    height: '100%',
-  },
   header: {
     alignItems: 'center',
   },
   membershipImage: {
-    margin: 30,
-    marginBottom: 50,
+    marginTop: 20,
+    marginBottom: 40,
     justifyContent: 'flex-end',
     alignItems: 'center',
-    height: 190,
+    height: 180,
     width: width - 20,
     borderRadius: 15,
     overflow: 'hidden',
