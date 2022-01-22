@@ -45,6 +45,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     letterSpacing: 0.1,
     fontStyle: 'normal',
+    fontFamily: 'Inter_500Medium',
   },
   entryDate: {
     fontSize: 14,
@@ -52,6 +53,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     letterSpacing: 0.1,
     fontStyle: 'normal',
+    fontFamily: 'Inter_500Medium',
   },
   entryDetail: {
     fontSize: 12,
@@ -59,6 +61,7 @@ const styles = StyleSheet.create({
     fontWeight: '500',
     letterSpacing: 0.5,
     fontStyle: 'normal',
+    fontFamily: 'Inter_500Medium',
   },
   image: {
     borderWidth: 0,
