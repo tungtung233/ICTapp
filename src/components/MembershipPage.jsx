@@ -14,6 +14,7 @@ import {
 } from '@expo-google-fonts/inter';
 import { Button } from 'react-native-elements';
 import MembershipBenefits from './MembershipBenefits';
+import MembershipTestimonials from './MembershipTestimonials';
 
 const { width } = Dimensions.get('window');
 
@@ -82,7 +83,13 @@ export default function MembershipPage() {
             title='Become a member'
           ></Button>
         </View>
-        <Text>{`\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n`}</Text>
+        <View style={styles.testimonials}>
+          <Text style={styles.testimonialHeading}>
+            What people are saying:
+          </Text>
+          <MembershipTestimonials/>
+        </View>
+        <Text>{`\n\n\n`}</Text>
       </ScrollView>
     );
   }
@@ -154,5 +161,14 @@ const styles = StyleSheet.create({
     fontSize: 30,
     fontFamily: 'Inter_400Regular',
     lineHeight: 34,
+  },
+  testimonials: {
+    alignItems: 'center',
+    marginTop: 30
+  },
+  testimonialHeading: {
+    fontSize: 28,
+    lineHeight: 36,
+    fontFamily: 'Inter_500Medium',
   },
 });
