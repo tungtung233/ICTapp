@@ -47,6 +47,14 @@ export default function MembershipPage() {
             fellowship.
           </Text>
         </View>
+        <View style={styles.orientation}>
+          <Text style={styles.orientationSubheading}>
+            Next member orientation:
+          </Text>
+          <Text style={styles.orientationDate}>
+            {`Monday, October 18 \n2 P.M EDT as part of the WIN series`}
+          </Text>
+        </View>
       </ScrollView>
     );
   }
@@ -95,5 +103,19 @@ const styles = StyleSheet.create({
     paddingTop: 15,
     lineHeight: 28,
     fontFamily: 'Inter_400Regular',
+  },
+  orientation: {
+    paddingHorizontal: 20,
+    paddingTop: 50,
+  },
+  orientationSubheading: {
+    fontSize: 14,
+    fontFamily: 'Inter_500Medium',
+    lineHeight: 20,
+  },
+  orientationDate: {
+    fontSize: 24,
+    fontFamily: 'Inter_500Medium',
+    lineHeight: 34,
   },
 });
