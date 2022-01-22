@@ -6,17 +6,17 @@ import Navbar from './src/components/Navbar';
 import EventsPage from './src/components/EventsPage';
 import Button from './src/components/Button';
 import Homepage from './src/components/Homepage';
-
+import EventDetailPage from './src/components/EventDetailsPage';
 
 export default function App() {
   return (
     <SafeAreaView>
       <Navbar />
       <View style={styles.container}>
+        <EventDetailPage />
         <EventsPage />
         <Homepage />
-        <StatusBar style='auto' />
-
+        <StatusBar style="auto" />
       </View>
     </SafeAreaView>
   );
