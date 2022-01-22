@@ -20,6 +20,14 @@ export default function MembershipPage() {
           <Text style={styles.membershipImageTitle}>Membership</Text>
         </ImageBackground>
       </View>
+      <Text style={styles.d3}>Private.</Text>
+      <Text style={styles.d3}>Online.</Text>
+      <Text style={styles.s2}>
+        Designed to provide the support you need right now.
+      </Text>
+      <Text style={styles.b2}>
+        A job search is a marathon, not a sprint. It's hard work and often lonely. Our community provides a supportive, safe and empowering fellowship.
+      </Text>
     </ScrollView>
   );
 }
@@ -43,6 +51,19 @@ const styles = StyleSheet.create({
   membershipImageTitle: {
     fontSize: 50,
     color: 'white',
-    marginBottom: 20
-  }
+    marginBottom: 20,
+  },
+  d3: {
+    fontSize: 52,
+    paddingHorizontal: 20,
+  },
+  s2: {
+    fontSize: 20,
+    paddingHorizontal: 20,
+  },
+  b2: {
+    fontSize: 20,
+    paddingHorizontal: 20,
+    paddingTop: 15,
+  },
 });
