@@ -12,6 +12,7 @@ import {
 import Navbar from './src/components/Navbar';
 import EventsPage from './src/components/EventsPage';
 import Homepage from './src/components/Homepage';
+import EventDetailPage from './src/components/EventDetailsPage';
 
 export default function App() {
   let [fontsLoaded] = useFonts({
@@ -22,6 +23,7 @@ export default function App() {
     <SafeAreaView>
       <Navbar />
       <View style={styles.container}>
+        <EventDetailPage />
         <EventsPage />
         <Homepage />
         <StatusBar style="auto" />
