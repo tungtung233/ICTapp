@@ -17,14 +17,14 @@ const EventsList = ({ events }) => {
           <ImageBackground source={entry.image} style={styles.image} />
           <View style={styles.info}>
             <Text style={styles.entryTitle}>{entry.title}</Text>
-            <View style={{ padding: 3 }} />
+            <View style={{ padding: 1 }} />
             <Text style={styles.entryDate}>{entry.date}</Text>
             <Text style={styles.entryDate}>{entry.time}</Text>
-            <View style={{ padding: 4 }} />
-            <Text>view details</Text>
+            <View style={{ padding: 2 }} />
+            <Text style={styles.entryDetail}>view details</Text>
           </View>
         </View>
-        <View style={{ padding: 11 }} />
+        <View style={{ padding: 10 }} />
       </View>
     ))
   ) : (
@@ -35,21 +35,39 @@ const EventsList = ({ events }) => {
 const styles = StyleSheet.create({
   card: {
     backgroundColor: '#FFFFFF',
-    borderRadius: 20,
+    borderRadius: 14,
     flexDirection: 'row',
+    height: 100,
   },
   entryTitle: {
-    fontSize: 18,
+    fontSize: 16,
+    lineHeight: 24,
+    fontWeight: '500',
+    letterSpacing: 0.1,
+    fontStyle: 'normal',
+    fontFamily: 'Inter_500Medium',
   },
   entryDate: {
-    fontSize: 16,
+    fontSize: 14,
+    lineHeight: 20,
+    fontWeight: '500',
+    letterSpacing: 0.1,
+    fontStyle: 'normal',
+    fontFamily: 'Inter_500Medium',
+  },
+  entryDetail: {
+    fontSize: 12,
+    lineHeight: 16,
+    fontWeight: '500',
+    letterSpacing: 0.5,
+    fontStyle: 'normal',
+    fontFamily: 'Inter_500Medium',
   },
   image: {
-    borderWidth: 2,
     borderWidth: 0,
-    borderRadius: 20,
-    width: width * 0.27,
-    height: width * 0.27,
+    borderRadius: 14,
+    width: 102.5,
+    height: 100,
     overflow: 'hidden',
   },
   info: {
