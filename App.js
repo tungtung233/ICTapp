@@ -4,8 +4,8 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 
 import Navbar from './src/components/Navbar';
 import EventsPage from './src/components/EventsPage';
-import Button from './src/components/Button';
 import Homepage from './src/components/Homepage';
+import MembershipPage from './src/components/MembershipPage';
 
 
 export default function App() {
@@ -13,9 +13,10 @@ export default function App() {
     <SafeAreaView>
       <Navbar />
       <View style={styles.container}>
-        <EventsPage />
-        <Homepage />
-        <StatusBar style='auto' />
+        <MembershipPage />
+        {/* <EventsPage /> */}
+        {/* <Homepage /> */}
+        {/* <StatusBar style='auto' /> */}
 
       </View>
     </SafeAreaView>
