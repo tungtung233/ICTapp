@@ -5,25 +5,33 @@ import {
   StyleSheet,
   Text,
   View,
+  TouchableOpacity,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const { width } = Dimensions.get('window');
 
 const EventsList = ({ events }) => {
+  const navigation = useNavigation();
+
   return events ? (
     events.map((entry, index) => (
       <View key={index}>
-        <View style={styles.card}>
-          <ImageBackground source={entry.image} style={styles.image} />
-          <View style={styles.info}>
-            <Text style={styles.entryTitle}>{entry.title}</Text>
-            <View style={{ padding: 1 }} />
-            <Text style={styles.entryDate}>{entry.date}</Text>
-            <Text style={styles.entryDate}>{entry.time}</Text>
-            <View style={{ padding: 2 }} />
-            <Text style={styles.entryDetail}>view details</Text>
+        <TouchableOpacity
+          onPress={() => navigation.navigate('EventDetailPage')}
+        >
+          <View style={styles.card}>
+            <ImageBackground source={entry.image} style={styles.image} />
+            <View style={styles.info}>
+              <Text style={styles.entryTitle}>{entry.title}</Text>
+              <View style={{ padding: 1 }} />
+              <Text style={styles.entryDate}>{entry.date}</Text>
+              <Text style={styles.entryDate}>{entry.time}</Text>
+              <View style={{ padding: 2 }} />
+              <Text style={styles.entryDetail}>view details</Text>
+            </View>
           </View>
-        </View>
+        </TouchableOpacity>
         <View style={{ padding: 10 }} />
       </View>
     ))
