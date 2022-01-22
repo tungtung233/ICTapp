@@ -6,13 +6,13 @@ import {
   View,
   Dimensions,
 } from 'react-native';
-
 import AppLoading from 'expo-app-loading';
 import {
   useFonts,
   Inter_400Regular,
   Inter_500Medium,
 } from '@expo-google-fonts/inter';
+import { Button } from 'react-native-elements';
 
 const { width } = Dimensions.get('window');
 
@@ -55,6 +55,18 @@ export default function MembershipPage() {
             {`Monday, October 18 \n2 P.M EDT as part of the WIN series`}
           </Text>
         </View>
+        <View style={{marginTop: 30, alignItems: 'center'}}>
+          <Button
+            buttonStyle={{
+              width: 194,
+              height: 47,
+              borderRadius: 10,
+              backgroundColor: 'grey',
+            }}
+            title='Become a member'
+          ></Button>
+        </View>
+        <Text>{`\n\n\n\n`}</Text>
       </ScrollView>
     );
   }
