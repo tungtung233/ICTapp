@@ -21,7 +21,7 @@ export default function HeaderBar() {
             name='x'
             size={25}
             color='#8c929c'
-            style={styles.menu}
+            style={{ marginRight: 30 }}
             onPress={() => navigation.closeDrawer()}
           />
         ) : (
@@ -29,7 +29,7 @@ export default function HeaderBar() {
             name='md-menu'
             size={34}
             color='#8c929c'
-            style={styles.menu}
+            style={{ marginRight: 25 }}
             onPress={() => navigation.openDrawer()}
           />
         )}
@@ -50,8 +50,5 @@ const styles = StyleSheet.create({
     width: 50,
     height: 30,
     marginLeft: 15,
-  },
-  menu: {
-    marginRight: 25,
-  },
+  }
 });
