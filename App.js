@@ -19,6 +19,7 @@ import Homepage from './src/components/Homepage';
 import MembershipPage from './src/components/MembershipPage';
 import EventDetailPage from './src/components/EventDetailsPage';
 import StayInTouch from './src/components/StayInTouch';
+import StayInTouchConfirmationPage from './src/components/StayInTouchConfirmationPage';
 import PhoneCall from './src/components/PhoneCall';
 import PhoneSMS from './src/components/PhoneSMS';
 
@@ -82,8 +83,8 @@ export default function App() {
       {showDropMenu && <DropMenu />}
       <Stack.Navigator
         initialRouteName='Homepage'
-        screenOptions={
-          {headerShadowVisible: false,
+        screenOptions={{
+          headerShadowVisible: false,
           headerStyle: { backgroundColor: '#F6F6F6' },
           headerLeft: (props) => <LogoTitle {...props} />,
           headerTitleStyle: { color: '#F6F6F6' },
@@ -95,6 +96,7 @@ export default function App() {
         <Stack.Screen name='EventDetailPage' component={EventDetailPage} />
         <Stack.Screen name='Membership' component={MembershipPage} />
         <Stack.Screen name='StayInTouch' component={StayInTouch} />
+        <Stack.Screen name='StayInTouchConfirmationPage' component={StayInTouchConfirmationPage} />
       </Stack.Navigator>
     </NavigationContainer>
   ) : (

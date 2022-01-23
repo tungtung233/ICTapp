@@ -84,7 +84,10 @@ const SignUp = ({ params }) => {
         />
       </View>
       <View style={styles.button}>
-        <Button text='Stay in touch' />
+        <Button
+          text='Stay in touch'
+          linkLocation='StayInTouchConfirmationPage'
+        />
       </View>
     </View>
   );

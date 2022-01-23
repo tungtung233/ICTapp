@@ -6,16 +6,24 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 const { width } = Dimensions.get('window');
 
-const Button = ({ text, ...params }) => (
-  <TouchableOpacity activeOpacity={0.8}>
-    <View style={styles.container}>
-      <Text style={styles.text}>{text}</Text>
-    </View>
-  </TouchableOpacity>
-);
+const Button = ({ text, linkLocation, ...params }) => {
+  const navigation = useNavigation();
+
+  return (
+    <TouchableOpacity
+      activeOpacity={0.8}
+      onPress={() => navigation.navigate(linkLocation)}
+    >
+      <View style={styles.container}>
+        <Text style={styles.text}>{text}</Text>
+      </View>
+    </TouchableOpacity>
+  );
+};
 
 const styles = StyleSheet.create({
   container: {
