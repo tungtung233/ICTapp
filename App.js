@@ -1,5 +1,6 @@
+import 'react-native-gesture-handler';
 import React, { useState } from 'react';
-import { View, Image, StatusBar } from 'react-native';
+import { View, Image, StatusBar, Text } from 'react-native';
 import AppLoading from 'expo-app-loading';
 
 import {
@@ -24,9 +25,16 @@ import PhoneCall from './src/components/PhoneCall';
 import PhoneSMS from './src/components/PhoneSMS';
 
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
+
+import {
+  createDrawerNavigator,
+  DrawerItemList,
+  DrawerItem,
+} from '@react-navigation/drawer';
+const Drawer = createDrawerNavigator();
 
 export default function App() {
   StatusBar.setBarStyle('light-content', true);
@@ -49,11 +57,15 @@ export default function App() {
 
   const [showDropMenu, setShowDropMenu] = useState(false);
 
-  const handleDropMenu = () => {
-    setShowDropMenu(() => !showDropMenu);
+  const openDropMenu = () => {
+    setShowDropMenu(true);
   };
 
-  function BurgerMenu() {
+  const closeDropMenu = () => {
+    setShowDropMenu(true);
+  };
+
+  function BurgerMenu(props) {
     return (
       <>
         <View>
@@ -62,14 +74,14 @@ export default function App() {
               name='md-menu'
               size={34}
               color='darkgrey'
-              onPress={handleDropMenu}
+              onPress={openDropMenu}
             />
           ) : (
             <Feather
               name='x'
               size={25}
               color='darkgrey'
-              onPress={handleDropMenu}
+              onPress={closeDropMenu}
             />
           )}
         </View>
@@ -77,27 +89,67 @@ export default function App() {
     );
   }
 
+  const CustomDrawerContent = (props) => {
+    return (
+      <>
+        <DrawerItem
+          label='Home'
+          onPress={() => props.navigation.navigate('Homepage')}
+        />
+        <DrawerItem
+          label='About'
+        />
+        <DrawerItem
+          label='Membership'
+          onPress={() => props.navigation.navigate('Membership')}
+        />
+        <DrawerItem
+          label='Contact Us'
+          onPress={() => props.navigation.navigate('StayInTouch')}
+        />
+        <DrawerItem
+          label='Workshops'
+          onPress={() => props.navigation.navigate('Workshops')}
+        />
+        <DrawerItem label='Courses' />
+        <DrawerItem label='Resources' />
+        <DrawerItem
+          label='Close drawer'
+          onPress={() => props.navigation.closeDrawer()}
+        />
+        <DrawerItem
+          label='Toggle drawer'
+          onPress={() => props.navigation.toggleDrawer()}
+        />
+      </>
+    );
+  };
+
   return fontsLoaded ? (
     <NavigationContainer>
       <StatusBar style='auto' />
-      {showDropMenu && <DropMenu />}
-      <Stack.Navigator
+      {/* {showDropMenu && <DropMenu />} */}
+      <Drawer.Navigator
         initialRouteName='Homepage'
-        screenOptions={{
-          headerShadowVisible: false,
-          headerStyle: { backgroundColor: '#F6F6F6' },
-          headerLeft: (props) => <LogoTitle {...props} />,
-          headerTitleStyle: { color: '#F6F6F6' },
-          headerRight: (props) => <BurgerMenu {...props} />,
-        }}
+        // screenOptions={{
+        //   headerShadowVisible: false,
+        //   headerStyle: { backgroundColor: '#F6F6F6' },
+        //   headerLeft: (props) => <LogoTitle {...props} />,
+        //   headerTitleStyle: { color: '#F6F6F6' },
+        //   headerRight: (props) => <BurgerMenu {...props} />,
+        // }}
+        drawerContent={(props) => <CustomDrawerContent {...props} />}
       >
-        <Stack.Screen name='Homepage' component={Homepage} />
-        <Stack.Screen name='Workshops' component={EventsPage} />
-        <Stack.Screen name='EventDetailPage' component={EventDetailPage} />
-        <Stack.Screen name='Membership' component={MembershipPage} />
-        <Stack.Screen name='StayInTouch' component={StayInTouch} />
-        <Stack.Screen name='StayInTouchConfirmationPage' component={StayInTouchConfirmationPage} />
-      </Stack.Navigator>
+        <Drawer.Screen name='Homepage' component={Homepage} />
+        <Drawer.Screen name='Workshops' component={EventsPage} />
+        <Drawer.Screen name='EventDetailPage' component={EventDetailPage} />
+        <Drawer.Screen name='Membership' component={MembershipPage} />
+        <Drawer.Screen name='StayInTouch' component={StayInTouch} />
+        <Drawer.Screen
+          name='StayInTouchConfirmationPage'
+          component={StayInTouchConfirmationPage}
+        />
+      </Drawer.Navigator>
     </NavigationContainer>
   ) : (
     <AppLoading />
