@@ -12,24 +12,23 @@ const Input = ({ placeholder, icon, ...resizeTo }) => (
 const styles = StyleSheet.create({
   container: {
     width: width - 40,
-    height: 48,
+    height: 54,
     backgroundColor: '#FFFFFF',
     borderRadius: 15,
     flexDirection: 'row',
     justifyContent: 'flex-start',
     alignItems: 'center',
-    shadowColor: '#000',
+    shadowColor: 'rgba(1, 1, 1, 0.3)',
     shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.5,
-    shadowRadius: 10,
-    elevation: 2,
+    elevation: 5,
   },
   input: {
     backgroundColor: '#FFFFFF',
-    borderColor: '#FFFFFF',
-    color: '#727C8e',
-    fontSize: 16,
+    color: 'black',
+    fontSize: 18,
     paddingLeft: 15,
+    fontFamily: 'Inter_400Regular',
+    width: '100%'
   },
 });
 

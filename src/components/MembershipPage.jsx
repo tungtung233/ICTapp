@@ -59,7 +59,7 @@ export default function MembershipPage() {
             borderRadius: 15,
             backgroundColor: '#625B71',
           }}
-          onPress={() => navigation.navigate('KeepInTouch')}
+          onPress={() => navigation.navigate('StayInTouch')}
           title='Find out more'
           titleStyle={{ fontFamily: 'Inter_500Medium', fontSize: 17 }}
         ></Button>
@@ -114,7 +114,7 @@ export default function MembershipPage() {
             borderRadius: 15,
             backgroundColor: '#625B71',
           }}
-          onPress={() => navigation.navigate('KeepInTouch')}
+          onPress={() => navigation.navigate('StayInTouch')}
           title='Find out more'
           titleStyle={{ fontFamily: 'Inter_500Medium', fontSize: 17 }}
         ></Button>

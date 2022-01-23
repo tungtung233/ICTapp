@@ -10,7 +10,7 @@ import {
 const { width } = Dimensions.get('window');
 
 const Button = ({ text, ...params }) => (
-  <TouchableOpacity>
+  <TouchableOpacity activeOpacity={0.8}>
     <View style={styles.container}>
       <Text style={styles.text}>{text}</Text>
     </View>
@@ -20,16 +20,17 @@ const Button = ({ text, ...params }) => (
 const styles = StyleSheet.create({
   container: {
     width: width - 40,
-    height: 48,
+    height: 55,
     justifyContent: 'center',
     alignItems: 'center',
     borderRadius: 15,
-    backgroundColor: '#9b9b9b',
+    backgroundColor: '#625B71',
   },
   text: {
     color: '#FFFFFF',
-    fontSize: 16,
     textAlign: 'center',
+    fontFamily: 'Inter_400Regular',
+    fontSize: 18.5,
   },
 });
 
