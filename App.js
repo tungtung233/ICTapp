@@ -1,6 +1,5 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, Text } from 'react-native';
+import { StyleSheet, View, StatusBar } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import AppLoading from 'expo-app-loading';
 import {
@@ -20,14 +19,18 @@ import PhoneCall from './src/components/PhoneCall';
 import PhoneSMS from './src/components/PhoneSMS';
 
 export default function App() {
+  StatusBar.setBarStyle('light-content', true);
+
   let [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_500Medium,
     Inter_600SemiBold,
     Inter_700Bold,
   });
+
   return fontsLoaded ? (
     <SafeAreaView>
+      <StatusBar style='auto' />
       <Navbar />
       <View style={styles.container}>
         <PhoneCall />
