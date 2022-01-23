@@ -1,32 +1,26 @@
 import React from 'react';
-import {
-  StyleSheet,
-  Text,
-  View,
-  Dimensions,
-  Image,
-} from 'react-native';
+import { StyleSheet, Text, View, Dimensions, Image } from 'react-native';
 
 const { height, width } = Dimensions.get('window');
 
 export default function MembershipTestimonials() {
   const allTestimonials = [
     {
-      jpgLocation: require('../../assets/test-square.jpg'),
+      jpgLocation: require('../../assets/Membership-Page/Marie-Flores.jpg'),
       name: 'Marie Flores',
       profession: 'Healthcare Administrator',
       testimonial:
         'Repackaging myself was a nightmare! Thank goodness for the Collaboratory - they helped me with LinkedIn, resumes - everything!',
     },
     {
-      jpgLocation: require('../../assets/test-square.jpg'),
+      jpgLocation: require('../../assets/Membership-Page/James-Smith.jpg'),
       name: 'James Smith',
       profession: 'Tax Attorney',
       testimonial:
         'The Wayfinder Basecamp community and my coach helped me navigate the new virtual world of work!',
     },
     {
-      jpgLocation: require('../../assets/test-square.jpg'),
+      jpgLocation: require('../../assets/Membership-Page/Meredith-Brown.jpg'),
       name: 'Meredith Brown',
       profession: 'Educator',
       testimonial:
@@ -34,16 +28,16 @@ export default function MembershipTestimonials() {
     },
   ];
 
-  const parsedTestimonials = allTestimonials.map((element, index) => {
+  const parsedTestimonials = allTestimonials.map((person, index) => {
     return (
       <View
         key={`membershipTestimonials.${index}`}
         style={styles.membershipTestimonial}
       >
-        <Image source={element.jpgLocation} style={styles.image} />
-        <Text style={styles.name}>{element.name}</Text>
-        <Text style={styles.profession}>{element.profession}</Text>
-        <Text style={styles.testimonial}>{element.testimonial}</Text>
+        <Image source={person.jpgLocation} style={styles.image} />
+        <Text style={styles.name}>{person.name}</Text>
+        <Text style={styles.profession}>{person.profession}</Text>
+        <Text style={styles.testimonial}>{person.testimonial}</Text>
       </View>
     );
   });
@@ -62,37 +56,37 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   image: {
-    borderRadius: 60,
-    width: 120,
-    height: 120,
+    borderRadius: 85,
+    width: 170,
+    height: 170,
     overflow: 'hidden',
-    marginTop: 50,
+    marginTop: 30,
     backgroundColor: 'blue',
   },
   name: {
     marginTop: 20,
     fontSize: 26,
     lineHeight: 32,
-    color: 'black',
+    color: 'rgba(0,0,0,0.8)',
     textAlign: 'center',
     fontFamily: 'Inter_400Regular',
   },
   profession: {
     fontSize: 14,
     lineHeight: 16,
-    color: 'black',
+    color: 'rgba(0,0,0,0.8)',
     textAlign: 'center',
     fontFamily: 'Inter_400Regular',
   },
   testimonial: {
-    marginTop: 5,
-    fontSize: 15,
-    lineHeight: 20,
+    marginTop: 10,
+    fontSize: 16,
+    lineHeight: 23,
     color: 'black',
     textAlign: 'center',
     fontFamily: 'Inter_500Medium',
   },
   parsedTestimonials: {
-    paddingHorizontal: 15
-  }
+    paddingHorizontal: 15,
+  },
 });
