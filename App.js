@@ -93,7 +93,7 @@ export default function App() {
         <Stack.Screen name='Homepage' component={Homepage} />
         <Stack.Screen name='Workshops' component={EventsPage} />
         <Stack.Screen name='EventDetailPage' component={EventDetailPage} />
-        <Stack.Screen name='Community' component={MembershipPage} />
+        <Stack.Screen name='Membership' component={MembershipPage} />
         <Stack.Screen name='KeepInTouch' component={KeepInTouch} />
       </Stack.Navigator>
     </NavigationContainer>
