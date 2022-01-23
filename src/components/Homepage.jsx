@@ -11,25 +11,20 @@ export default function Homepage() {
 
   const allQuickLinks = [
     {
-      title: 'Collaboratory',
-      jpgLocation: require('../../assets/test-square.jpg'),
+      title: 'Membership',
+      jpgLocation: require('../../assets/Homepage/Membership.jpg'),
     },
     {
-      title: 'Community',
-      jpgLocation: require('../../assets/test-square.jpg'),
+      title: 'Collaboratory',
+      jpgLocation: require('../../assets/Homepage/Collaboratory.jpg'),
     },
     {
       title: 'Workshops',
-      jpgLocation: require('../../assets/test-square.jpg'),
-    },
-    { title: 'WIN', jpgLocation: require('../../assets/test-square.jpg') },
-    {
-      title: 'ICT Wayfinding',
-      jpgLocation: require('../../assets/test-square.jpg'),
+      jpgLocation: require('../../assets/Homepage/Workshops.jpg'),
     },
     {
       title: 'Resources',
-      jpgLocation: require('../../assets/test-square.jpg'),
+      jpgLocation: require('../../assets/Homepage/Resources.jpg'),
     },
   ];
 
@@ -45,8 +40,8 @@ export default function Homepage() {
 
   return (
     <View style={styles.homepage}>
-      <Text style={styles.text}>{`Lorem ipsum dolor sit amet,`}</Text>
-      <Text style={styles.text}>{`consectetur adipiscing elit.`}</Text>
+      <Text style={styles.heading}>{`INSTITUTE\nFOR CAREER\nTRANSITIONS`}</Text>
+      <Text style={styles.text}>{`Helping experienced professionals regroup, recover, and strategize.`}</Text>
       <View style={styles.quickLinks}>{parsedQuickLinks}</View>
     </View>
   );
@@ -58,17 +53,29 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     paddingTop: 15,
     paddingBottom: 15,
+    backgroundColor: '#F6F6F6',
+  },
+  heading: {
+    width: 2 * (width * 0.45) + 12,
+    marginTop: 5,
+    fontSize: 41,
+    lineHeight: 58,
+    color: '#8c929c',
+    fontFamily: 'Inter_400Regular',
   },
   text: {
     width: 2 * (width * 0.45) + 12,
-    marginTop: 5,
-    fontSize: 20,
+    marginTop: 8,
+    fontSize: 21,
+    lineHeight: 33,
+    color: '#1B2540',
+    fontFamily: 'Inter_400Regular',
   },
   quickLinks: {
     flexDirection: 'row',
     flexWrap: 'wrap',
     justifyContent: 'center',
     alignContent: 'center',
-    height: height - 150,
+    marginTop: 35,
   },
 });
