@@ -19,6 +19,7 @@ const EventsList = ({ events }) => {
       <View key={index}>
         <TouchableOpacity
           onPress={() => navigation.navigate('EventDetailPage')}
+          activeOpacity={0.8}
         >
           <View style={styles.card}>
             <ImageBackground source={entry.image} style={styles.image} />
@@ -27,12 +28,13 @@ const EventsList = ({ events }) => {
               <View style={{ padding: 1 }} />
               <Text style={styles.entryDate}>{entry.date}</Text>
               <Text style={styles.entryDate}>{entry.time}</Text>
+              <Text style={styles.entryDate}>{entry.cost}</Text>
               <View style={{ padding: 2 }} />
               <Text style={styles.entryDetail}>view details</Text>
             </View>
           </View>
         </TouchableOpacity>
-        <View style={{ padding: 10 }} />
+        <View style={{ padding: 5 }} />
       </View>
     ))
   ) : (
@@ -42,45 +44,47 @@ const EventsList = ({ events }) => {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#FFFFFF',
+    backgroundColor: '#625B71',
     borderRadius: 14,
     flexDirection: 'row',
-    height: 100,
+    height: 135,
+    alignItems: 'center',
   },
   entryTitle: {
-    fontSize: 16,
+    fontSize: 18,
+    textDecorationLine: 'underline',
     lineHeight: 24,
-    fontWeight: '500',
     letterSpacing: 0.1,
     fontStyle: 'normal',
     fontFamily: 'Inter_500Medium',
+    color: 'white',
   },
   entryDate: {
     fontSize: 14,
     lineHeight: 20,
-    fontWeight: '500',
     letterSpacing: 0.1,
     fontStyle: 'normal',
     fontFamily: 'Inter_500Medium',
+    color: 'white',
   },
   entryDetail: {
     fontSize: 12,
     lineHeight: 16,
-    fontWeight: '500',
     letterSpacing: 0.5,
     fontStyle: 'normal',
     fontFamily: 'Inter_500Medium',
+    color: 'rgba(255, 255, 255, 0.5)',
   },
   image: {
-    borderWidth: 0,
-    borderRadius: 14,
-    width: 102.5,
-    height: 100,
+    borderTopLeftRadius: 14,
+    borderBottomLeftRadius: 14,
+    width: 120,
+    height: 135,
     overflow: 'hidden',
   },
   info: {
     flex: 2,
-    padding: 8,
+    paddingLeft: 8,
     paddingBottom: 0,
     marginLeft: 5,
   },
