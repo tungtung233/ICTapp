@@ -1,14 +1,21 @@
 import React from 'react';
-import { Image, ScrollView, StyleSheet, Text, View } from 'react-native';
+import {
+  Image,
+  ImageBackground,
+  ScrollView,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import { Button } from 'react-native-elements';
 
 const EventDetailPage = () => (
   <ScrollView>
     <View style={styles.container}>
       <View style={{ padding: 12 }} />
-      <Image
+      <ImageBackground
         style={styles.image}
-        source={require('../../assets/test-square.jpg')}
+        source={require('../../assets/EventDetails-Page/event_banner.jpg')}
       />
       <View style={{ padding: 23 }} />
       <View style={styles.container}>
@@ -17,16 +24,17 @@ const EventDetailPage = () => (
           <View>
             <Text style={styles.date}>WED, JAN 19</Text>
             <Text style={styles.date}>1:00 PM - 2:00 PM EST</Text>
+            <Text style={styles.price}>$10 / Free for members</Text>
           </View>
           <Button
             buttonStyle={{
               height: 47,
               width: 129,
               borderRadius: 14,
-              backgroundColor: 'grey',
+              backgroundColor: '#625B71',
             }}
             containerStyle={{ margin: 5 }}
-            title='register now'
+            title="register now"
             titleStyle={{ fontSize: 14 }}
           />
         </View>
@@ -81,18 +89,18 @@ const EventDetailPage = () => (
             height: 47,
             width: 129,
             borderRadius: 14,
-            backgroundColor: 'grey',
+            backgroundColor: '#625B71',
             alignSelf: 'center',
           }}
           containerStyle={{ margin: 5 }}
-          title='register now'
+          title="register now"
           titleStyle={{ fontSize: 14 }}
         />
         <View style={{ padding: 40 }} />
         <View style={styles.twoColumnContainer}>
           <Image
             style={styles.avatar}
-            source={require('../../assets/test-square.jpg')}
+            source={require('../../assets/EventDetails-Page/event_author.jpg')}
           />
           <View style={{ height: 169 }}>
             <Text style={styles.authorName}>{`Anne Marie \nMessier`}</Text>
@@ -111,9 +119,11 @@ const EventDetailPage = () => (
           boardrooms to the local coffee shops.
         </Text>
         <View style={{ alignItems: 'flex-end', marginTop: 15 }}>
-          <Text>amessier@straightlinegroup.com</Text>
-          <Text>978-821-8376</Text>
-          <Text>www.straightlinegroup.com</Text>
+          <Text style={styles.authorContact}>
+            amessier@straightlinegroup.com
+          </Text>
+          <Text style={styles.authorContact}>978-821-8376</Text>
+          <Text style={styles.authorContact}>www.straightlinegroup.com</Text>
         </View>
         <Text>{`\n\n\n`}</Text>
       </View>
@@ -126,6 +136,9 @@ const styles = StyleSheet.create({
     height: 170,
     width: 112,
     borderRadius: 14,
+    backgroundColor: '#988FAD',
+    marginRight: 25,
+    resizeMode: 'contain',
   },
   aboutAuthor: {
     fontFamily: 'Inter_400Regular',
@@ -140,19 +153,29 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   authorTitle: {
-    fontFamily: 'Inter_600SemiBold',
+    fontFamily: 'Inter_500Medium',
     fontSize: 16,
     lineHeight: 24,
+    color: '#846352',
+  },
+  authorContact: {
+    fontFamily: 'Inter_400Regular',
+    fontSize: 14,
+    lineHeight: 16,
+    color: '#846352',
   },
   container: {
     marginLeft: 11,
     marginRight: 11,
+    backgroundColor: '#F6F6F6',
   },
   date: {
     fontFamily: 'Inter_400Regular',
     fontSize: 14,
     lineHeight: 16,
     textTransform: 'uppercase',
+    color: '#846352',
+    marginRight: 25,
   },
   description: {
     fontFamily: 'Inter_400Regular',
@@ -163,7 +186,15 @@ const styles = StyleSheet.create({
   image: {
     height: 264,
     width: '100%',
-    borderRadius: 14,
+    borderRadius: 15,
+    overflow: 'hidden',
+    backgroundColor: '#988FAD',
+  },
+  price: {
+    fontFamily: 'Inter_500Medium',
+    fontSize: 14,
+    lineHeight: 20,
+    color: '#846352',
   },
   subtitle: {
     fontFamily: 'Inter_700Bold',
@@ -181,7 +212,6 @@ const styles = StyleSheet.create({
   twoColumnContainer: {
     flexDirection: 'row',
     alignItems: 'flex-start',
-    justifyContent: 'space-between',
     marginTop: 21,
     marginBottom: 21,
   },
