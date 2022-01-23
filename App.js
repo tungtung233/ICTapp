@@ -1,5 +1,8 @@
+import React from 'react';
+import { StyleSheet, View, StatusBar } from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
 import React, { useState } from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, StatusBar } from 'react-native';
 import AppLoading from 'expo-app-loading';
 
 import {
@@ -28,12 +31,15 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  StatusBar.setBarStyle('light-content', true);
+
   let [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_500Medium,
     Inter_600SemiBold,
     Inter_700Bold,
   });
+
 
   function LogoTitle() {
     return (
@@ -92,6 +98,7 @@ export default function App() {
         <Stack.Screen name='KeepInTouch' component={KeepInTouch} />
       </Stack.Navigator>
     </NavigationContainer>
+
   ) : (
     <AppLoading />
   );
