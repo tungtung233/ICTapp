@@ -1,5 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import HeaderBar from './HeaderBar';
 
 import HomepageQuickLink from './HomepageQuickLink';
 
@@ -36,13 +37,18 @@ export default function Homepage() {
   });
 
   return (
-    <View style={styles.homepage}>
-      <Text style={styles.heading}>{`INSTITUTE\nFOR CAREER\nTRANSITIONS`}</Text>
-      <Text
-        style={styles.text}
-      >{`Helping experienced professionals regroup, recover, and strategize.`}</Text>
-      <View style={styles.quickLinks}>{parsedQuickLinks}</View>
-    </View>
+    <>
+      <HeaderBar />
+      <View style={styles.homepage}>
+        <Text
+          style={styles.heading}
+        >{`INSTITUTE\nFOR CAREER\nTRANSITIONS`}</Text>
+        <Text
+          style={styles.text}
+        >{`Helping experienced professionals regroup, recover, and strategize.`}</Text>
+        <View style={styles.quickLinks}>{parsedQuickLinks}</View>
+      </View>
+    </>
   );
 }
 
