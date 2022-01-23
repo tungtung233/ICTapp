@@ -7,12 +7,16 @@ import {
   Dimensions,
 } from 'react-native';
 import { Button } from 'react-native-elements';
+import { useNavigation } from '@react-navigation/native';
+
 import MembershipBenefits from './MembershipBenefits';
 import MembershipTestimonials from './MembershipTestimonials';
 
 const { width } = Dimensions.get('window');
 
 export default function MembershipPage() {
+  const navigation = useNavigation();
+
   return (
     <ScrollView>
       <View style={styles.header}>
@@ -51,6 +55,7 @@ export default function MembershipPage() {
             borderRadius: 10,
             backgroundColor: 'grey',
           }}
+          onPress={() => navigation.navigate('KeepInTouch')}
           title='Become a member'
         ></Button>
       </View>
@@ -66,6 +71,7 @@ export default function MembershipPage() {
             borderRadius: 10,
             backgroundColor: 'grey',
           }}
+          onPress={() => navigation.navigate('KeepInTouch')}
           title='Become a member'
         ></Button>
       </View>
