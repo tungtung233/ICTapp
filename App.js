@@ -79,9 +79,11 @@ export default function App() {
       {showDropMenu && <DropMenu />}
       <Stack.Navigator
         initialRouteName='Homepage'
-        screenOptions={{
+        screenOptions={
+          {headerShadowVisible: false,
+          headerStyle: { backgroundColor: '#F6F6F6' },
           headerLeft: (props) => <LogoTitle {...props} />,
-          headerTitleStyle: { color: 'white' },
+          headerTitleStyle: { color: '#F6F6F6' },
           headerRight: (props) => <BurgerMenu {...props} />,
         }}
       >
