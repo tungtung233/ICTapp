@@ -1,11 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 
 import HomepageQuickLink from './HomepageQuickLink';
 
 const { height, width } = Dimensions.get('window');
 
 export default function Homepage() {
+  const navigation = useNavigation();
+
   const allQuickLinks = [
     {
       title: 'Collaboratory',
