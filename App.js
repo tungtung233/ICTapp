@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Image } from 'react-native';
+import { View, Image, StatusBar } from 'react-native';
 import AppLoading from 'expo-app-loading';
 
 import {
@@ -28,6 +28,8 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  StatusBar.setBarStyle('light-content', true);
+
   let [fontsLoaded] = useFonts({
     Inter_400Regular,
     Inter_500Medium,
@@ -76,6 +78,7 @@ export default function App() {
 
   return fontsLoaded ? (
     <NavigationContainer>
+      <StatusBar style='auto' />
       {showDropMenu && <DropMenu />}
       <Stack.Navigator
         initialRouteName='Homepage'
