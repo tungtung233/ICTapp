@@ -35,7 +35,6 @@ const styles = StyleSheet.create({
   container: {
     width: width,
     height: height,
-    backgroundColor: 'red',
   },
   text: {
     height: height - 50,
