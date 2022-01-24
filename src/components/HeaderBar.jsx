@@ -38,7 +38,7 @@ export default function HeaderBar() {
             name='md-menu'
             size={34}
             color='#8c929c'
-            style={{ marginRight: 25 }}
+            style={{ marginRight: 10 }}
             onPress={() => navigation.openDrawer()}
           />
         )}
