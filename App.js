@@ -1,7 +1,7 @@
 import React from 'react';
 import 'react-native-gesture-handler';
 import AppLoading from 'expo-app-loading';
-import { StatusBar, StyleSheet, View } from 'react-native';
+import { Dimensions, StatusBar, StyleSheet, View } from 'react-native';
 import { Ionicons } from '@expo/vector-icons';
 import {
   EventsPage,
@@ -11,7 +11,7 @@ import {
   StayInTouch,
   StayInTouchConfirmationPage,
 } from './src/screens';
-
+import ContactUs from './src/components/ContactUs.jsx';
 import {
   useFonts,
   Inter_400Regular,
@@ -23,6 +23,8 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator, DrawerItem } from '@react-navigation/drawer';
 const Drawer = createDrawerNavigator();
+
+const { width } = Dimensions.get('window');
 
 export default function App() {
   StatusBar.setBarStyle('light-content', true);
@@ -65,8 +67,10 @@ export default function App() {
         <DrawerItem label="Courses" />
         <View style={styles.divider} />
         <DrawerItem label="Resources" />
-        <View style={styles.footer} />
-        <View style={styles.contact}></View>
+        {/* <View style={styles.footer}> */}
+        <ContactUs />
+
+        {/* </View> */}
       </>
     );
   };
@@ -76,7 +80,14 @@ export default function App() {
       <StatusBar style="auto" />
       <Drawer.Navigator
         initialRouteName="Homepage"
-        screenOptions={{ drawerPosition: 'right', headerShown: false }}
+        screenOptions={{
+          drawerPosition: 'right',
+          headerShown: false,
+          drawerStyle: {
+            backgroundColor: '#FFFFFF',
+            width: width * 0.831,
+          },
+        }}
         drawerContent={(props) => <CustomDrawerContent {...props} />}
       >
         <Drawer.Screen
@@ -102,9 +113,9 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  contact: {
+  footer: {
     backgroundColor: '#222D4D',
-    flex: 1,
+    // flex: 1,
   },
   divider: {
     borderBottomColor: '#222D4D',
@@ -118,9 +129,5 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'flex-end',
     paddingRight: 15,
-  },
-  footer: {
-    backgroundColor: '#625B71',
-    height: 50,
   },
 });
