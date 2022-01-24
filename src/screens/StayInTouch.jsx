@@ -1,10 +1,11 @@
 import React, { useState } from 'react';
-import { Dimensions, StyleSheet, Text, View } from 'react-native';
+import { ScrollView, StyleSheet, Text, View } from 'react-native';
 import { CheckBox } from 'react-native-elements';
 
 import Button from '../components/Button';
 import HeaderBar from '../components/HeaderBar';
 import Input from '../components/Input';
+import ContactUs from '../components/ContactUs';
 
 const title = 'Stay in Touch';
 
@@ -22,77 +23,80 @@ const SignUp = ({ params }) => {
   return (
     <>
       <HeaderBar />
-      <View style={styles.container}>
-        <View>
-          <Text style={styles.titleText}>{title}</Text>
+      <ScrollView>
+        <View style={styles.container}>
+          <View>
+            <Text style={styles.titleText}>{title}</Text>
+          </View>
+          <Text style={styles.text}>Email *</Text>
+          <View style={styles.input}>
+            <Input placeholder="example@mail.com" />
+          </View>
+          <Text style={styles.text}>Create a password *</Text>
+          <View style={styles.input}>
+            <Input placeholder="at least 8 characters" password />
+          </View>
+          <Text style={styles.text}>Date of birth *</Text>
+          <View style={styles.input}>
+            <Input placeholder="MM / DD / YYYY" />
+          </View>
+          <View style={styles.input}>
+            <Text style={styles.promise}>
+              We want to give you a special treat on your birthday
+            </Text>
+          </View>
+          <View>
+            <CheckBox
+              checkedColor="#625B71"
+              onPress={handleCheck1}
+              checked={isChecked1}
+              containerStyle={{
+                backgroundColor: 'transparent',
+                borderColor: '#F6F6F6',
+              }}
+              title={
+                <Text
+                  style={{
+                    fontSize: 18,
+                    fontFamily: 'Inter_400Regular',
+                    paddingLeft: 10,
+                  }}
+                >
+                  Subscribe to newsletter
+                </Text>
+              }
+            />
+            <CheckBox
+              checkedColor="#625B71"
+              onPress={handleCheck2}
+              checked={isChecked2}
+              containerStyle={{
+                backgroundColor: 'transparent',
+                borderColor: '#F6F6F6',
+              }}
+              title={
+                <Text
+                  style={{
+                    fontSize: 18,
+                    fontFamily: 'Inter_400Regular',
+                    paddingLeft: 10,
+                  }}
+                >
+                  Find out more about becoming a member so you can enjoy
+                  exclusive content and more!
+                </Text>
+              }
+            />
+          </View>
+          <View style={styles.button}>
+            <Button
+              text="Stay in touch"
+              linkLocation="StayInTouchConfirmationPage"
+            />
+          </View>
         </View>
-        <Text style={styles.text}>Email *</Text>
-        <View style={styles.input}>
-          <Input placeholder="example@mail.com" />
-        </View>
-        <Text style={styles.text}>Create a password *</Text>
-        <View style={styles.input}>
-          <Input placeholder="at least 8 characters" password />
-        </View>
-        <Text style={styles.text}>Date of birth *</Text>
-        <View style={styles.input}>
-          <Input placeholder="MM / DD / YYYY" />
-        </View>
-        <View style={styles.input}>
-          <Text style={styles.promise}>
-            We want to give you a special treat on your birthday
-          </Text>
-        </View>
-        <View>
-          <CheckBox
-            checkedColor="#625B71"
-            onPress={handleCheck1}
-            checked={isChecked1}
-            containerStyle={{
-              backgroundColor: 'transparent',
-              borderColor: '#F6F6F6',
-            }}
-            title={
-              <Text
-                style={{
-                  fontSize: 18,
-                  fontFamily: 'Inter_400Regular',
-                  paddingLeft: 10,
-                }}
-              >
-                Subscribe to newsletter
-              </Text>
-            }
-          />
-          <CheckBox
-            checkedColor="#625B71"
-            onPress={handleCheck2}
-            checked={isChecked2}
-            containerStyle={{
-              backgroundColor: 'transparent',
-              borderColor: '#F6F6F6',
-            }}
-            title={
-              <Text
-                style={{
-                  fontSize: 18,
-                  fontFamily: 'Inter_400Regular',
-                  paddingLeft: 10,
-                }}
-              >
-                Find out more about becoming a member so you can enjoy exclusive
-                content and more!
-              </Text>
-            }
-          />
-        </View>
-        <View style={styles.button}>
-          <Button
-            text="Stay in touch"
-            linkLocation="StayInTouchConfirmationPage"
-          />
-        </View>
-      </View>
+        <ContactUs />
+      </ScrollView>
     </>
   );
 };
