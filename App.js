@@ -12,6 +12,7 @@ import {
   StayInTouchConfirmationPage,
 } from './src/screens';
 import ContactUs from './src/components/ContactUs.jsx';
+import { OpenTermsConditions } from './src/components/ContactUs.jsx';
 import {
   useFonts,
   Inter_400Regular,
@@ -67,10 +68,9 @@ export default function App() {
         <DrawerItem label="Courses" />
         <View style={styles.divider} />
         <DrawerItem label="Resources" />
-        {/* <View style={styles.footer}> */}
-        <ContactUs />
-
-        {/* </View> */}
+        <View style={styles.footer}>
+          <ContactUs />
+        </View>
       </>
     );
   };
@@ -115,7 +115,8 @@ export default function App() {
 const styles = StyleSheet.create({
   footer: {
     backgroundColor: '#222D4D',
-    // flex: 1,
+    paddingTop: '8%',
+    flex: 1,
   },
   divider: {
     borderBottomColor: '#222D4D',
