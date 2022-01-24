@@ -38,9 +38,9 @@ export default function DropMenu() {
       <Text style={styles.menuItem}>Resources</Text>
       <View style={styles.menuHome}>
         <Ionicons
-          name='home'
+          name="home"
           size={24}
-          color='black'
+          color="black"
           style={styles.divider}
           onPress={() => navigation.navigate('Homepage')}
         />
