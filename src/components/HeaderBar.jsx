@@ -6,7 +6,6 @@ import {
 } from 'react-native';
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
-import { Feather } from '@expo/vector-icons';
 
 import { useNavigation } from '@react-navigation/native';
 import { useDrawerStatus } from '@react-navigation/drawer';
@@ -25,15 +24,7 @@ export default function HeaderBar() {
             style={styles.ictLogo}
           />
         </TouchableWithoutFeedback>
-        {useDrawerStatus() === 'open' ? (
-          <Feather
-            name='x'
-            size={25}
-            color='#8c929c'
-            style={{ marginRight: 30 }}
-            onPress={() => navigation.closeDrawer()}
-          />
-        ) : (
+        {useDrawerStatus() === 'closed' && (
           <Ionicons
             name='md-menu'
             size={34}
