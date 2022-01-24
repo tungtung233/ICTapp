@@ -12,6 +12,7 @@ import { Button, ListItem } from 'react-native-elements';
 import { Octicons } from '@expo/vector-icons';
 
 import HeaderBar from '../components/HeaderBar';
+import ContactUs from '../components/ContactUs';
 
 function handleOpenEventbrite() {
   Linking.openURL(
@@ -200,6 +201,8 @@ function EventDetailPage() {
             <Text>{`\n`}</Text>
           </View>
         </View>
+        <ContactUs />
+        <View style={{ padding: 20, backgroundColor: '#222D4D' }}></View>
       </ScrollView>
     </>
   );

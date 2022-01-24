@@ -64,7 +64,7 @@ export default function MembershipPage() {
               backgroundColor: '#625B71',
             }}
             onPress={() => navigation.navigate('StayInTouch')}
-            title='Find out more'
+            title="Find out more"
             titleStyle={{ fontFamily: 'Inter_500Medium', fontSize: 17 }}
           ></Button>
         </View>
@@ -72,9 +72,9 @@ export default function MembershipPage() {
           <Text style={styles.benefitsHeading}>Member benefits include:</Text>
           <ListItem containerStyle={{ backgroundColor: '#F6F6F6' }}>
             <Octicons
-              name='primitive-dot'
+              name="primitive-dot"
               size={14}
-              color='black'
+              color="black"
               style={{ paddingBottom: 25 }}
             />
             <ListItem.Content>
@@ -85,9 +85,9 @@ export default function MembershipPage() {
           </ListItem>
           <ListItem containerStyle={{ backgroundColor: '#F6F6F6' }}>
             <Octicons
-              name='primitive-dot'
+              name="primitive-dot"
               size={14}
-              color='black'
+              color="black"
               style={{ paddingBottom: 88 }}
             />
             <ListItem.Content>
@@ -128,7 +128,7 @@ export default function MembershipPage() {
               backgroundColor: '#625B71',
             }}
             onPress={() => navigation.navigate('StayInTouch')}
-            title='Find out more'
+            title="Find out more"
             titleStyle={{ fontFamily: 'Inter_500Medium', fontSize: 17 }}
           ></Button>
         </View>

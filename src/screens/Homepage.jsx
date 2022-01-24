@@ -1,8 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { ScrollView } from 'react-native-gesture-handler';
 
 import HeaderBar from '../components/HeaderBar';
 import HomepageQuickLink from '../components/HomepageQuickLink';
+import ContactUs from '../components/ContactUs';
 
 const { height, width } = Dimensions.get('window');
 
@@ -39,15 +41,19 @@ export default function Homepage() {
   return (
     <>
       <HeaderBar />
-      <View style={styles.homepage}>
-        <Text
-          style={styles.heading}
-        >{`INSTITUTE\nFOR CAREER\nTRANSITIONS`}</Text>
-        <Text
-          style={styles.text}
-        >{`Helping experienced professionals regroup, recover, and strategize.`}</Text>
-        <View style={styles.quickLinks}>{parsedQuickLinks}</View>
-      </View>
+      <ScrollView>
+        <View style={styles.homepage}>
+          <Text
+            style={styles.heading}
+          >{`INSTITUTE\nFOR CAREER\nTRANSITIONS`}</Text>
+          <Text
+            style={styles.text}
+          >{`Helping experienced professionals regroup, recover, and strategize.`}</Text>
+          <View style={styles.quickLinks}>{parsedQuickLinks}</View>
+        </View>
+        <ContactUs />
+        <View style={{ padding: 20, backgroundColor: '#222D4D' }}></View>
+      </ScrollView>
     </>
   );
 }

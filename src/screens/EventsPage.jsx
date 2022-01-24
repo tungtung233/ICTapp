@@ -4,6 +4,7 @@ import { Text, View, ScrollView, StyleSheet } from 'react-native';
 import { events } from '../../constants/dummy';
 import EventsList from '../components/EventsList';
 import HeaderBar from '../components/HeaderBar';
+import ContactUs from '../components/ContactUs';
 
 const EventsPage = () => {
   return (
@@ -17,6 +18,8 @@ const EventsPage = () => {
           <View style={{ padding: 5 }} />
           <EventsList events={events} />
         </View>
+        <ContactUs />
+        <View style={{ padding: 20, backgroundColor: '#222D4D' }}></View>
       </ScrollView>
     </>
   );

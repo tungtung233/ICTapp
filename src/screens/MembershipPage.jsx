@@ -12,6 +12,7 @@ import { useNavigation } from '@react-navigation/native';
 
 import MembershipTestimonials from '../components/MembershipTestimonials';
 import HeaderBar from '../components/HeaderBar';
+import ContactUs from '../components/ContactUs';
 
 import { Octicons } from '@expo/vector-icons';
 
@@ -135,6 +136,8 @@ export default function MembershipPage() {
           <Text style={styles.testimonialHeading}>What people are saying:</Text>
           <MembershipTestimonials />
         </View>
+        <ContactUs />
+        <View style={{ padding: 20, backgroundColor: '#222D4D' }}></View>
       </ScrollView>
     </>
   );

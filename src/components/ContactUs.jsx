@@ -1,6 +1,7 @@
 import {
   Alert,
   Linking,
+  ScrollView,
   StyleSheet,
   Text,
   View,
@@ -129,31 +130,35 @@ export const OpenTermsConditions = () => {
 
 export default function ContactUs() {
   return (
-    <View style={styles.container}>
-      <View style={styles.topContainer}>
-        <View style={styles.leftColumn}>
-          <Text style={styles.header}>Contact Us</Text>
-          <MakePhoneCall phoneNumber={phoneNumber} />
-          <SendEmail email={email} />
-        </View>
-        <View style={styles.rightColumn}>
-          <Text style={styles.header}>Follow Us</Text>
-          <View style={styles.socialMedia}>
-            <OpenTwitter />
-            <OpenLinkedIn />
-            <OpenFacebook />
+    <ScrollView>
+      <View style={styles.container}>
+        <View style={styles.topContainer}>
+          <View style={styles.leftColumn}>
+            <Text style={styles.header}>Contact Us</Text>
+            <MakePhoneCall phoneNumber={phoneNumber} />
+            <SendEmail email={email} />
+          </View>
+          <View style={styles.rightColumn}>
+            <Text style={styles.header}>Follow Us</Text>
+            <View style={styles.socialMedia}>
+              <OpenTwitter />
+              <OpenLinkedIn />
+              <OpenFacebook />
+            </View>
           </View>
         </View>
+        <View style={{ padding: 30, backgroundColor: '#222D4D' }}></View>
+        <OpenTermsConditions />
       </View>
-      <View style={{ padding: 30 }}></View>
-      <OpenTermsConditions />
-    </View>
+      <View style={{ padding: 20, backgroundColor: '#222D4D' }}></View>
+    </ScrollView>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    height: 173,
+    // height: 173,
+    flex: 1,
     width: '100%',
     paddingHorizontal: 20,
     paddingTop: 30,
