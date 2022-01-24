@@ -3,18 +3,22 @@ import { Text, View, ScrollView, StyleSheet } from 'react-native';
 
 import { events } from '../../constants/dummy';
 import EventsList from './EventsList';
+import HeaderBar from './HeaderBar';
 
 const EventsPage = () => {
   return (
-    <ScrollView>
-      <View style={styles.container}>
-        <View>
-          <Text style={styles.titleText}>Workshops &amp; Events</Text>
+    <>
+      <HeaderBar />
+      <ScrollView>
+        <View style={styles.container}>
+          <View>
+            <Text style={styles.titleText}>Workshops &amp; Events</Text>
+          </View>
+          <View style={{ padding: 5 }} />
+          <EventsList events={events} />
         </View>
-        <View style={{ padding: 5 }} />
-        <EventsList events={events} />
-      </View>
-    </ScrollView>
+      </ScrollView>
+    </>
   );
 };
 
