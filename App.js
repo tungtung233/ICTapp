@@ -11,14 +11,12 @@ import {
   Inter_700Bold,
 } from '@expo-google-fonts/inter';
 
-import EventsPage from './src/components/EventsPage';
-import Homepage from './src/components/Homepage';
-import MembershipPage from './src/components/MembershipPage';
-import EventDetailPage from './src/components/EventDetailsPage';
-import StayInTouch from './src/components/StayInTouch';
-import StayInTouchConfirmationPage from './src/components/StayInTouchConfirmationPage';
-import PhoneCall from './src/components/PhoneCall';
-import PhoneSMS from './src/components/PhoneSMS';
+import EventsPage from './src/screens/EventsPage';
+import Homepage from './src/screens/Homepage';
+import MembershipPage from './src/screens/MembershipPage';
+import EventDetailPage from './src/screens/EventDetailsPage';
+import StayInTouch from './src/screens/StayInTouch';
+import StayInTouchConfirmationPage from './src/screens/StayInTouchConfirmationPage';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator, DrawerItem } from '@react-navigation/drawer';
@@ -34,35 +32,35 @@ export default function App() {
     Inter_700Bold,
   });
 
-  const CustomDrawerContent = (props) => {
+  const CustomDrawerContent = ({ navigation }) => {
     return (
       <>
         <DrawerItem
-          label='Home'
-          onPress={() => props.navigation.navigate('Homepage')}
+          label="Home"
+          onPress={() => navigation.navigate('Homepage')}
         />
-        <DrawerItem label='About' />
+        <DrawerItem label="About" />
         <DrawerItem
-          label='Membership'
-          onPress={() => props.navigation.navigate('Membership')}
-        />
-        <DrawerItem
-          label='Contact Us'
-          onPress={() => props.navigation.navigate('StayInTouch')}
+          label="Membership"
+          onPress={() => navigation.navigate('Membership')}
         />
         <DrawerItem
-          label='Workshops'
-          onPress={() => props.navigation.navigate('Workshops')}
-        />
-        <DrawerItem label='Courses' />
-        <DrawerItem label='Resources' />
-        <DrawerItem
-          label='Close drawer'
-          onPress={() => props.navigation.closeDrawer()}
+          label="Contact Us"
+          onPress={() => navigation.navigate('StayInTouch')}
         />
         <DrawerItem
-          label='Toggle drawer'
-          onPress={() => props.navigation.toggleDrawer()}
+          label="Workshops"
+          onPress={() => navigation.navigate('Workshops')}
+        />
+        <DrawerItem label="Courses" />
+        <DrawerItem label="Resources" />
+        <DrawerItem
+          label="Close drawer"
+          onPress={() => navigation.closeDrawer()}
+        />
+        <DrawerItem
+          label="Toggle drawer"
+          onPress={() => navigation.toggleDrawer()}
         />
       </>
     );
@@ -70,27 +68,27 @@ export default function App() {
 
   return fontsLoaded ? (
     <NavigationContainer>
-      <StatusBar style='auto' />
+      <StatusBar style="auto" />
       <Drawer.Navigator
-        initialRouteName='Homepage'
+        initialRouteName="Homepage"
         screenOptions={{
           headerShown: false,
         }}
         drawerContent={(props) => <CustomDrawerContent {...props} />}
       >
         <Drawer.Screen
-          name='Homepage'
+          name="Homepage"
           component={Homepage}
           options={{
             drawerActiveBackgroundColor: 'red',
           }}
         />
-        <Drawer.Screen name='Workshops' component={EventsPage} />
-        <Drawer.Screen name='EventDetailPage' component={EventDetailPage} />
-        <Drawer.Screen name='Membership' component={MembershipPage} />
-        <Drawer.Screen name='StayInTouch' component={StayInTouch} />
+        <Drawer.Screen name="Workshops" component={EventsPage} />
+        <Drawer.Screen name="EventDetailPage" component={EventDetailPage} />
+        <Drawer.Screen name="Membership" component={MembershipPage} />
+        <Drawer.Screen name="StayInTouch" component={StayInTouch} />
         <Drawer.Screen
-          name='StayInTouchConfirmationPage'
+          name="StayInTouchConfirmationPage"
           component={StayInTouchConfirmationPage}
         />
       </Drawer.Navigator>
