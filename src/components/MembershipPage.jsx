@@ -11,9 +11,10 @@ import { Button, ListItem } from 'react-native-elements';
 import { useNavigation } from '@react-navigation/native';
 
 import MembershipTestimonials from './MembershipTestimonials';
+import HeaderBar from './HeaderBar';
+import ContactUs from './ContactUs';
 
 import { Octicons } from '@expo/vector-icons';
-import HeaderBar from './HeaderBar';
 
 const { width } = Dimensions.get('window');
 
@@ -135,6 +136,7 @@ export default function MembershipPage() {
           <Text style={styles.testimonialHeading}>What people are saying:</Text>
           <MembershipTestimonials />
         </View>
+        <ContactUs />
       </ScrollView>
     </>
   );
