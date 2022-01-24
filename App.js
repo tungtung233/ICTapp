@@ -1,7 +1,15 @@
-import 'react-native-gesture-handler';
 import React from 'react';
-import { StatusBar } from 'react-native';
+import 'react-native-gesture-handler';
 import AppLoading from 'expo-app-loading';
+import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import {
+  EventsPage,
+  EventDetailPage,
+  Homepage,
+  MembershipPage,
+  StayInTouch,
+  StayInTouchConfirmationPage,
+} from './src/screens';
 
 import {
   useFonts,
@@ -10,15 +18,6 @@ import {
   Inter_600SemiBold,
   Inter_700Bold,
 } from '@expo-google-fonts/inter';
-
-import EventsPage from './src/components/EventsPage';
-import Homepage from './src/components/Homepage';
-import MembershipPage from './src/components/MembershipPage';
-import EventDetailPage from './src/components/EventDetailsPage';
-import StayInTouch from './src/components/StayInTouch';
-import StayInTouchConfirmationPage from './src/components/StayInTouchConfirmationPage';
-import PhoneCall from './src/components/PhoneCall';
-import PhoneSMS from './src/components/PhoneSMS';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator, DrawerItem } from '@react-navigation/drawer';
@@ -34,63 +33,57 @@ export default function App() {
     Inter_700Bold,
   });
 
-  const CustomDrawerContent = (props) => {
+  const CustomDrawerContent = ({ navigation }) => {
     return (
       <>
+        <View style={styles.header} />
+        <DrawerItem label="About" />
+        <View style={styles.divider} />
         <DrawerItem
-          label='Home'
-          onPress={() => props.navigation.navigate('Homepage')}
+          label="Membership"
+          onPress={() => navigation.navigate('Membership')}
         />
-        <DrawerItem label='About' />
+        <View style={styles.divider} />
         <DrawerItem
-          label='Membership'
-          onPress={() => props.navigation.navigate('Membership')}
+          label="Contact Us"
+          onPress={() => navigation.navigate('StayInTouch')}
         />
+        <View style={styles.divider} />
         <DrawerItem
-          label='Contact Us'
-          onPress={() => props.navigation.navigate('StayInTouch')}
+          label="Workshops"
+          onPress={() => navigation.navigate('Workshops')}
         />
-        <DrawerItem
-          label='Workshops'
-          onPress={() => props.navigation.navigate('Workshops')}
-        />
-        <DrawerItem label='Courses' />
-        <DrawerItem label='Resources' />
-        <DrawerItem
-          label='Close drawer'
-          onPress={() => props.navigation.closeDrawer()}
-        />
-        <DrawerItem
-          label='Toggle drawer'
-          onPress={() => props.navigation.toggleDrawer()}
-        />
+        <View style={styles.divider} />
+        <DrawerItem label="Courses" />
+        <View style={styles.divider} />
+        <DrawerItem label="Resources" />
+        <View style={styles.footer} />
+        <View style={styles.contact}></View>
       </>
     );
   };
 
   return fontsLoaded ? (
     <NavigationContainer>
-      <StatusBar style='auto' />
+      <StatusBar style="auto" />
       <Drawer.Navigator
-        initialRouteName='Homepage'
-        screenOptions={{
-          headerShown: false,
-        }}
+        initialRouteName="Homepage"
+        screenOptions={{ drawerPosition: 'right', headerShown: false }}
         drawerContent={(props) => <CustomDrawerContent {...props} />}
       >
         <Drawer.Screen
-          name='Homepage'
+          name="Homepage"
           component={Homepage}
           options={{
             drawerActiveBackgroundColor: 'red',
           }}
         />
-        <Drawer.Screen name='Workshops' component={EventsPage} />
-        <Drawer.Screen name='EventDetailPage' component={EventDetailPage} />
-        <Drawer.Screen name='Membership' component={MembershipPage} />
-        <Drawer.Screen name='StayInTouch' component={StayInTouch} />
+        <Drawer.Screen name="Workshops" component={EventsPage} />
+        <Drawer.Screen name="EventDetailPage" component={EventDetailPage} />
+        <Drawer.Screen name="Membership" component={MembershipPage} />
+        <Drawer.Screen name="StayInTouch" component={StayInTouch} />
         <Drawer.Screen
-          name='StayInTouchConfirmationPage'
+          name="StayInTouchConfirmationPage"
           component={StayInTouchConfirmationPage}
         />
       </Drawer.Navigator>
@@ -99,3 +92,24 @@ export default function App() {
     <AppLoading />
   );
 }
+
+const styles = StyleSheet.create({
+  contact: {
+    backgroundColor: '#222D4D',
+    flex: 1,
+  },
+  divider: {
+    borderBottomColor: '#222D4D',
+    borderBottomWidth: 0.9,
+    width: '90%',
+    alignSelf: 'center',
+  },
+  header: {
+    backgroundColor: '#222D4D',
+    height: 50,
+  },
+  footer: {
+    backgroundColor: '#625B71',
+    height: 50,
+  },
+});
