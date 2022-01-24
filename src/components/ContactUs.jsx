@@ -65,9 +65,9 @@ const OpenTwitter = () => {
 
   return (
     <Entypo
-      name='twitter-with-circle'
+      name="twitter-with-circle"
       size={24}
-      color='white'
+      color="white"
       style={{ marginHorizontal: 5 }}
       onPress={handleTwitter}
     />
@@ -87,9 +87,9 @@ const OpenLinkedIn = () => {
 
   return (
     <Entypo
-      name='linkedin-with-circle'
+      name="linkedin-with-circle"
       size={24}
-      color='white'
+      color="white"
       style={{ marginHorizontal: 5 }}
       onPress={handleLinkedIn}
     />
@@ -103,16 +103,16 @@ const OpenFacebook = () => {
 
   return (
     <Entypo
-      name='facebook-with-circle'
+      name="facebook-with-circle"
       size={24}
-      color='white'
+      color="white"
       style={{ marginHorizontal: 5 }}
       onPress={handleFacebook}
     />
   );
 };
 
-const OpenTermsConditions = () => {
+export const OpenTermsConditions = () => {
   const handleTermsConditions = useCallback(async () => {
     await Linking.openURL(`${termsConditions}`);
   }, []);
@@ -120,7 +120,7 @@ const OpenTermsConditions = () => {
   return (
     <TouchableWithoutFeedback onPress={handleTermsConditions}>
       <View style={styles.bottomContainer}>
-        <FontAwesome name='copyright' size={12} color='white' />
+        <FontAwesome name="copyright" size={12} color="white" />
         <Text style={styles.text}> 2022 ICT | Terms | Privacy</Text>
       </View>
     </TouchableWithoutFeedback>
@@ -145,6 +145,7 @@ export default function ContactUs() {
           </View>
         </View>
       </View>
+      <View style={{ padding: 30 }}></View>
       <OpenTermsConditions />
     </View>
   );

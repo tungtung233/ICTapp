@@ -1,7 +1,8 @@
 import React from 'react';
 import 'react-native-gesture-handler';
 import AppLoading from 'expo-app-loading';
-import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import { Dimensions, StatusBar, StyleSheet, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import {
   EventsPage,
   EventDetailPage,
@@ -10,7 +11,8 @@ import {
   StayInTouch,
   StayInTouchConfirmationPage,
 } from './src/screens';
-
+import ContactUs from './src/components/ContactUs.jsx';
+import { OpenTermsConditions } from './src/components/ContactUs.jsx';
 import {
   useFonts,
   Inter_400Regular,
@@ -22,6 +24,8 @@ import {
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator, DrawerItem } from '@react-navigation/drawer';
 const Drawer = createDrawerNavigator();
+
+const { width } = Dimensions.get('window');
 
 export default function App() {
   StatusBar.setBarStyle('light-content', true);
@@ -36,7 +40,14 @@ export default function App() {
   const CustomDrawerContent = ({ navigation }) => {
     return (
       <>
-        <View style={styles.header} />
+        <View style={styles.header}>
+          <Ionicons
+            name="close-outline"
+            size={24}
+            color="#FFFFFF"
+            onPress={() => navigation.navigate('Homepage')}
+          />
+        </View>
         <DrawerItem label="About" />
         <View style={styles.divider} />
         <DrawerItem
@@ -57,8 +68,9 @@ export default function App() {
         <DrawerItem label="Courses" />
         <View style={styles.divider} />
         <DrawerItem label="Resources" />
-        <View style={styles.footer} />
-        <View style={styles.contact}></View>
+        <View style={styles.footer}>
+          <ContactUs />
+        </View>
       </>
     );
   };
@@ -68,7 +80,14 @@ export default function App() {
       <StatusBar style="auto" />
       <Drawer.Navigator
         initialRouteName="Homepage"
-        screenOptions={{ drawerPosition: 'right', headerShown: false }}
+        screenOptions={{
+          drawerPosition: 'right',
+          headerShown: false,
+          drawerStyle: {
+            backgroundColor: '#FFFFFF',
+            width: width * 0.831,
+          },
+        }}
         drawerContent={(props) => <CustomDrawerContent {...props} />}
       >
         <Drawer.Screen
@@ -94,8 +113,9 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  contact: {
+  footer: {
     backgroundColor: '#222D4D',
+    paddingTop: '8%',
     flex: 1,
   },
   divider: {
@@ -107,9 +127,8 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: '#222D4D',
     height: 50,
-  },
-  footer: {
-    backgroundColor: '#625B71',
-    height: 50,
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    paddingRight: 15,
   },
 });
