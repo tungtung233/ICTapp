@@ -1,7 +1,7 @@
 import React from 'react';
 import 'react-native-gesture-handler';
 import AppLoading from 'expo-app-loading';
-import { Dimensions, StatusBar, StyleSheet, View } from 'react-native';
+import { StatusBar, StyleSheet, Text, View } from 'react-native';
 import {
   EventsPage,
   EventDetailPage,
@@ -58,6 +58,7 @@ export default function App() {
         <View style={styles.divider} />
         <DrawerItem label="Resources" />
         <View style={styles.footer} />
+        <View style={styles.contact}></View>
       </>
     );
   };
@@ -68,9 +69,6 @@ export default function App() {
       <Drawer.Navigator
         initialRouteName="Homepage"
         screenOptions={{ drawerPosition: 'right', headerShown: false }}
-        // drawerStyle={{
-        //   width: Dimensions.get('window').width * 0.95,
-        // }}
         drawerContent={(props) => <CustomDrawerContent {...props} />}
       >
         <Drawer.Screen
@@ -96,6 +94,10 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
+  contact: {
+    backgroundColor: '#222D4D',
+    flex: 1,
+  },
   divider: {
     borderBottomColor: '#222D4D',
     borderBottomWidth: 0.9,
