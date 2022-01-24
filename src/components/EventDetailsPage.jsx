@@ -12,6 +12,7 @@ import { Button, ListItem } from 'react-native-elements';
 import { Octicons } from '@expo/vector-icons';
 
 import HeaderBar from './HeaderBar';
+import ContactUs from './ContactUs';
 
 function handleOpenEventbrite() {
   Linking.openURL(
@@ -197,9 +198,9 @@ function EventDetailPage() {
                 www.straightlinegroup.com
               </Text>
             </View>
-            <Text>{`\n`}</Text>
           </View>
         </View>
+        <ContactUs />
       </ScrollView>
     </>
   );
