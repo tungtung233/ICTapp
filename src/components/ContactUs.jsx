@@ -63,6 +63,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     flexDirection: 'row',
     alignItems: 'center',
+    marginTop: 5,
   },
   leftColumn: {
     width: '50%',
