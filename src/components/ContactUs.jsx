@@ -1,8 +1,131 @@
-import { StyleSheet, Text, View } from 'react-native';
-import React from 'react';
+import {
+  Alert,
+  Linking,
+  StyleSheet,
+  Text,
+  View,
+  TouchableWithoutFeedback,
+} from 'react-native';
+import React, { useCallback } from 'react';
 
 import { Entypo } from '@expo/vector-icons';
 import { FontAwesome } from '@expo/vector-icons';
+
+const phoneNumber = '+1 617-468-7837';
+const email = 'staff@ictransitions.org';
+
+const twitter = 'https://twitter.com/ICTransitions';
+const linkedIn =
+  'https://www.linkedin.com/company/institute-for-career-transitions/?viewAsMember=true';
+const facebook = 'https://www.facebook.com/ictransitions/';
+
+const termsConditions =
+  'https://www.ictransitions.org/general-pages/terms-conditions-and-privacy-statement/';
+
+const MakePhoneCall = () => {
+  const handleCall = useCallback(async () => {
+    await Linking.openURL(`tel:${phoneNumber}`);
+  }, []);
+
+  return (
+    <Text style={styles.text} onPress={handleCall}>
+      {phoneNumber}
+    </Text>
+  );
+};
+
+const SendEmail = () => {
+  const handleEmail = useCallback(async () => {
+    const supported = await Linking.canOpenURL(`mailto:${email}`);
+
+    if (supported) {
+      await Linking.openURL(`mailto:${email}`);
+    } else {
+      Alert.alert(`No valid email application`);
+    }
+  }, []);
+
+  return (
+    <Text style={styles.text} onPress={handleEmail}>
+      {email}
+    </Text>
+  );
+};
+
+const OpenTwitter = () => {
+  const handleTwitter = useCallback(async () => {
+    const supported = await Linking.canOpenURL(`${twitter}`);
+
+    if (supported) {
+      await Linking.openURL(`${twitter}`);
+    } else {
+      Alert.alert(`No valid browser application`);
+    }
+  }, []);
+
+  return (
+    <Entypo
+      name='twitter-with-circle'
+      size={24}
+      color='white'
+      style={{ marginHorizontal: 5 }}
+      onPress={handleTwitter}
+    />
+  );
+};
+
+const OpenLinkedIn = () => {
+  const handleLinkedIn = useCallback(async () => {
+    const supported = await Linking.canOpenURL(`${linkedIn}`);
+
+    if (supported) {
+      await Linking.openURL(`${linkedIn}`);
+    } else {
+      Alert.alert(`No valid browser application`);
+    }
+  }, []);
+
+  return (
+    <Entypo
+      name='linkedin-with-circle'
+      size={24}
+      color='white'
+      style={{ marginHorizontal: 5 }}
+      onPress={handleLinkedIn}
+    />
+  );
+};
+
+const OpenFacebook = () => {
+  const handleFacebook = useCallback(async () => {
+    await Linking.openURL(`${facebook}`);
+  }, []);
+
+  return (
+    <Entypo
+      name='facebook-with-circle'
+      size={24}
+      color='white'
+      style={{ marginHorizontal: 5 }}
+      onPress={handleFacebook}
+    />
+  );
+};
+
+const OpenTermsConditions = () => {
+  const handleTermsConditions = useCallback(async () => {
+    await Linking.openURL(`${termsConditions}`);
+  }, []);
+
+  return (
+    <TouchableWithoutFeedback onPress={handleTermsConditions}>
+      <View style={styles.bottomContainer}>
+        <FontAwesome name='copyright' size={12} color='white' />
+        <Text style={styles.text}> 2022 ICT | Terms | Privacy</Text>
+      </View>
+    </TouchableWithoutFeedback>
+  );
+};
 
 export default function ContactUs() {
   return (
@@ -10,37 +133,19 @@ export default function ContactUs() {
       <View style={styles.topContainer}>
         <View style={styles.leftColumn}>
           <Text style={styles.header}>Contact Us</Text>
-          <Text style={styles.text}>+1 617-468-7837</Text>
-          <Text style={styles.text}>staff@ictransitions.org</Text>
+          <MakePhoneCall phoneNumber={phoneNumber} />
+          <SendEmail email={email} />
         </View>
         <View style={styles.rightColumn}>
           <Text style={styles.header}>Follow Us</Text>
           <View style={styles.socialMedia}>
-            <Entypo
-              name='twitter-with-circle'
-              size={24}
-              color='white'
-              style={{ marginHorizontal: 5 }}
-            />
-            <Entypo
-              name='linkedin-with-circle'
-              size={24}
-              color='white'
-              style={{ marginHorizontal: 5 }}
-            />
-            <Entypo
-              name='facebook-with-circle'
-              size={24}
-              color='white'
-              style={{ marginHorizontal: 5 }}
-            />
+            <OpenTwitter />
+            <OpenLinkedIn />
+            <OpenFacebook />
           </View>
         </View>
       </View>
-      <View style={styles.bottomContainer}>
-        <FontAwesome name='copyright' size={12} color='white' />
-        <Text style={styles.text}> 2022 ICT | Terms | Privacy</Text>
-      </View>
+      <OpenTermsConditions />
     </View>
   );
 }
