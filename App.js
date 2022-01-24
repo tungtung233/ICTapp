@@ -2,6 +2,14 @@ import 'react-native-gesture-handler';
 import React from 'react';
 import { StatusBar } from 'react-native';
 import AppLoading from 'expo-app-loading';
+import {
+  EventsPage,
+  EventDetailPage,
+  Homepage,
+  MembershipPage,
+  StayInTouch,
+  StayInTouchConfirmationPage,
+} from './src/screens';
 
 import {
   useFonts,
@@ -10,13 +18,6 @@ import {
   Inter_600SemiBold,
   Inter_700Bold,
 } from '@expo-google-fonts/inter';
-
-import EventsPage from './src/screens/EventsPage';
-import Homepage from './src/screens/Homepage';
-import MembershipPage from './src/screens/MembershipPage';
-import EventDetailPage from './src/screens/EventDetailsPage';
-import StayInTouch from './src/screens/StayInTouch';
-import StayInTouchConfirmationPage from './src/screens/StayInTouchConfirmationPage';
 
 import { NavigationContainer } from '@react-navigation/native';
 import { createDrawerNavigator, DrawerItem } from '@react-navigation/drawer';
