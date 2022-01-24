@@ -2,38 +2,68 @@ import React from 'react';
 import {
   Dimensions,
   ImageBackground,
+  Share,
   StyleSheet,
   Text,
   View,
   TouchableOpacity,
 } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import { Ionicons } from '@expo/vector-icons';
 
 const { width } = Dimensions.get('window');
 
 const EventsList = ({ events }) => {
   const navigation = useNavigation();
 
+  const eventShare = async () => {
+    try {
+      const result = await Share.share({
+        title: 'ICT event',
+        message:
+          'I thought you might be interested in this ICT event \n' +
+          'https://www.eventbrite.com/e/sharing-stories-of-strengths-tickets-201101077737?aff=ebdsoporgprofile',
+      });
+    } catch (error) {
+      console.log('Error => ', error);
+    }
+  };
+
   return events ? (
     events.map((entry, index) => (
       <View key={index}>
-        <TouchableOpacity
-          onPress={() => navigation.navigate('EventDetailPage')}
-          activeOpacity={0.8}
-        >
-          <View style={styles.card}>
-            <ImageBackground source={entry.image} style={styles.image} />
-            <View style={styles.info}>
-              <Text style={styles.entryTitle}>{entry.title}</Text>
-              <View style={{ padding: 1 }} />
-              <Text style={styles.entryDate}>{entry.date}</Text>
-              <Text style={styles.entryDate}>{entry.time}</Text>
-              <Text style={styles.entryDate}>{entry.cost}</Text>
-              <View style={{ padding: 2 }} />
-              <Text style={styles.entryDetail}>view details</Text>
+        <View style={styles.card}>
+          <ImageBackground source={entry.image} style={styles.image} />
+          <View style={styles.info}>
+            <Text style={styles.entryTitle}>{entry.title}</Text>
+            <View style={{ padding: 1 }} />
+            <Text style={styles.entryDate}>{entry.date}</Text>
+            <Text style={styles.entryDate}>{entry.time}</Text>
+            <Text style={styles.entryDate}>{entry.cost}</Text>
+            <View style={{ padding: 2 }} />
+            <View
+              style={{
+                flexDirection: 'row',
+                justifyContent: 'space-between',
+                paddingRight: 5,
+              }}
+            >
+              <TouchableOpacity
+                onPress={() => navigation.navigate('EventDetailPage')}
+                activeOpacity={0.8}
+              >
+                <Text style={styles.entryDetail}>view details</Text>
+              </TouchableOpacity>
+              <Ionicons
+                name="share-outline"
+                size={15}
+                color="rgba(255, 255, 255, 0.5)"
+                onPress={eventShare}
+              />
             </View>
           </View>
-        </TouchableOpacity>
+        </View>
+
         <View style={{ padding: 5 }} />
       </View>
     ))
@@ -78,13 +108,13 @@ const styles = StyleSheet.create({
   image: {
     borderTopLeftRadius: 14,
     borderBottomLeftRadius: 14,
-    width: 120,
+    width: 115,
     height: 135,
     overflow: 'hidden',
   },
   info: {
     flex: 2,
-    paddingLeft: 8,
+    paddingLeft: 5,
     paddingBottom: 0,
     marginLeft: 5,
   },
