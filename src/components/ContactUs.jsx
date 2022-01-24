@@ -147,7 +147,7 @@ export default function ContactUs() {
             </View>
           </View>
         </View>
-        <View style={{ padding: 30, backgroundColor: '#222D4D' }}></View>
+        <View style={{ padding: 25, backgroundColor: '#222D4D' }}></View>
         <OpenTermsConditions />
       </View>
       <View style={{ padding: 20, backgroundColor: '#222D4D' }}></View>
