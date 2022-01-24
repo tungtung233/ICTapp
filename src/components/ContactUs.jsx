@@ -145,6 +145,7 @@ export default function ContactUs() {
           </View>
         </View>
       </View>
+      <View style={{ padding: 30 }}></View>
       <OpenTermsConditions />
     </View>
   );
