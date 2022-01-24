@@ -1,14 +1,12 @@
 import React from 'react';
 import { StyleSheet, Text, View, Dimensions } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import HeaderBar from './HeaderBar';
 
 import HomepageQuickLink from './HomepageQuickLink';
 
 const { height, width } = Dimensions.get('window');
 
 export default function Homepage() {
-  const navigation = useNavigation();
-
   const allQuickLinks = [
     {
       title: 'Membership',
@@ -39,11 +37,18 @@ export default function Homepage() {
   });
 
   return (
-    <View style={styles.homepage}>
-      <Text style={styles.heading}>{`INSTITUTE\nFOR CAREER\nTRANSITIONS`}</Text>
-      <Text style={styles.text}>{`Helping experienced professionals regroup, recover, and strategize.`}</Text>
-      <View style={styles.quickLinks}>{parsedQuickLinks}</View>
-    </View>
+    <>
+      <HeaderBar />
+      <View style={styles.homepage}>
+        <Text
+          style={styles.heading}
+        >{`INSTITUTE\nFOR CAREER\nTRANSITIONS`}</Text>
+        <Text
+          style={styles.text}
+        >{`Helping experienced professionals regroup, recover, and strategize.`}</Text>
+        <View style={styles.quickLinks}>{parsedQuickLinks}</View>
+      </View>
+    </>
   );
 }
 
