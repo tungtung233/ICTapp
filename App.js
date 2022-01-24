@@ -1,7 +1,7 @@
-import 'react-native-gesture-handler';
 import React from 'react';
-import { StatusBar } from 'react-native';
+import 'react-native-gesture-handler';
 import AppLoading from 'expo-app-loading';
+import { Dimensions, StatusBar } from 'react-native';
 import {
   EventsPage,
   EventDetailPage,
@@ -72,8 +72,9 @@ export default function App() {
       <StatusBar style="auto" />
       <Drawer.Navigator
         initialRouteName="Homepage"
-        screenOptions={{
-          headerShown: false,
+        screenOptions={{ drawerPosition: 'right', headerShown: false }}
+        drawerStyle={{
+          width: Dimensions.get('window').width * 0.95,
         }}
         drawerContent={(props) => <CustomDrawerContent {...props} />}
       >
