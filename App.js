@@ -1,7 +1,8 @@
 import React from 'react';
 import 'react-native-gesture-handler';
 import AppLoading from 'expo-app-loading';
-import { StatusBar, StyleSheet, Text, View } from 'react-native';
+import { StatusBar, StyleSheet, View } from 'react-native';
+import { Ionicons } from '@expo/vector-icons';
 import {
   EventsPage,
   EventDetailPage,
@@ -36,7 +37,14 @@ export default function App() {
   const CustomDrawerContent = ({ navigation }) => {
     return (
       <>
-        <View style={styles.header} />
+        <View style={styles.header}>
+          <Ionicons
+            name="close-outline"
+            size={24}
+            color="#FFFFFF"
+            onPress={() => navigation.navigate('Homepage')}
+          />
+        </View>
         <DrawerItem label="About" />
         <View style={styles.divider} />
         <DrawerItem
@@ -107,6 +115,9 @@ const styles = StyleSheet.create({
   header: {
     backgroundColor: '#222D4D',
     height: 50,
+    justifyContent: 'center',
+    alignItems: 'flex-end',
+    paddingRight: 15,
   },
   footer: {
     backgroundColor: '#625B71',
