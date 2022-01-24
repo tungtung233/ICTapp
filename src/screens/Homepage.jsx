@@ -6,7 +6,7 @@ import HeaderBar from '../components/HeaderBar';
 import HomepageQuickLink from '../components/HomepageQuickLink';
 import ContactUs from '../components/ContactUs';
 
-const { height, width } = Dimensions.get('window');
+const { width } = Dimensions.get('window');
 
 export default function Homepage() {
   const allQuickLinks = [
@@ -52,7 +52,6 @@ export default function Homepage() {
           <View style={styles.quickLinks}>{parsedQuickLinks}</View>
         </View>
         <ContactUs />
-        <View style={{ padding: 20, backgroundColor: '#222D4D' }}></View>
       </ScrollView>
     </>
   );

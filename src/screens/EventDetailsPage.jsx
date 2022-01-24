@@ -202,7 +202,6 @@ function EventDetailPage() {
           </View>
         </View>
         <ContactUs />
-        <View style={{ padding: 20, backgroundColor: '#222D4D' }}></View>
       </ScrollView>
     </>
   );
