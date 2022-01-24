@@ -1,4 +1,9 @@
-import { View, StyleSheet, Image } from 'react-native';
+import {
+  View,
+  StyleSheet,
+  Image,
+  TouchableWithoutFeedback,
+} from 'react-native';
 import React from 'react';
 import { Ionicons } from '@expo/vector-icons';
 import { Feather } from '@expo/vector-icons';
@@ -12,10 +17,14 @@ export default function HeaderBar() {
   return (
     <>
       <View style={styles.navbar}>
-        <Image
-          source={require('../../assets/ICT-Logo.png')}
-          style={styles.ictLogo}
-        />
+        <TouchableWithoutFeedback
+          onPress={() => navigation.navigate('Homepage')}
+        >
+          <Image
+            source={require('../../assets/ICT-Logo.png')}
+            style={styles.ictLogo}
+          />
+        </TouchableWithoutFeedback>
         {useDrawerStatus() === 'open' ? (
           <Feather
             name='x'
@@ -50,5 +59,5 @@ const styles = StyleSheet.create({
     width: 50,
     height: 30,
     marginLeft: 15,
-  }
+  },
 });
