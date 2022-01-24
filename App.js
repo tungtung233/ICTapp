@@ -1,7 +1,7 @@
 import React from 'react';
 import 'react-native-gesture-handler';
 import AppLoading from 'expo-app-loading';
-import { Dimensions, StatusBar } from 'react-native';
+import { Dimensions, StatusBar, StyleSheet, View } from 'react-native';
 import {
   EventsPage,
   EventDetailPage,
@@ -36,33 +36,28 @@ export default function App() {
   const CustomDrawerContent = ({ navigation }) => {
     return (
       <>
-        <DrawerItem
-          label="Home"
-          onPress={() => navigation.navigate('Homepage')}
-        />
+        <View style={styles.header} />
         <DrawerItem label="About" />
+        <View style={styles.divider} />
         <DrawerItem
           label="Membership"
           onPress={() => navigation.navigate('Membership')}
         />
+        <View style={styles.divider} />
         <DrawerItem
           label="Contact Us"
           onPress={() => navigation.navigate('StayInTouch')}
         />
+        <View style={styles.divider} />
         <DrawerItem
           label="Workshops"
           onPress={() => navigation.navigate('Workshops')}
         />
+        <View style={styles.divider} />
         <DrawerItem label="Courses" />
+        <View style={styles.divider} />
         <DrawerItem label="Resources" />
-        <DrawerItem
-          label="Close drawer"
-          onPress={() => navigation.closeDrawer()}
-        />
-        <DrawerItem
-          label="Toggle drawer"
-          onPress={() => navigation.toggleDrawer()}
-        />
+        <View style={styles.footer} />
       </>
     );
   };
@@ -73,9 +68,9 @@ export default function App() {
       <Drawer.Navigator
         initialRouteName="Homepage"
         screenOptions={{ drawerPosition: 'right', headerShown: false }}
-        drawerStyle={{
-          width: Dimensions.get('window').width * 0.95,
-        }}
+        // drawerStyle={{
+        //   width: Dimensions.get('window').width * 0.95,
+        // }}
         drawerContent={(props) => <CustomDrawerContent {...props} />}
       >
         <Drawer.Screen
@@ -99,3 +94,20 @@ export default function App() {
     <AppLoading />
   );
 }
+
+const styles = StyleSheet.create({
+  divider: {
+    borderBottomColor: '#222D4D',
+    borderBottomWidth: 0.9,
+    width: '90%',
+    alignSelf: 'center',
+  },
+  header: {
+    backgroundColor: '#222D4D',
+    height: 50,
+  },
+  footer: {
+    backgroundColor: '#625B71',
+    height: 50,
+  },
+});
