@@ -2,6 +2,7 @@ import React from 'react';
 import {
   Dimensions,
   ImageBackground,
+  Share,
   StyleSheet,
   Text,
   View,
@@ -14,6 +15,19 @@ const { width } = Dimensions.get('window');
 
 const EventsList = ({ events }) => {
   const navigation = useNavigation();
+
+  const eventShare = async () => {
+    try {
+      const result = await Share.share({
+        title: 'ICT event',
+        message:
+          'I thought you might be interested in this ICT event \n' +
+          'https://www.eventbrite.com/e/sharing-stories-of-strengths-tickets-201101077737?aff=ebdsoporgprofile',
+      });
+    } catch (error) {
+      console.log('Error => ', error);
+    }
+  };
 
   return events ? (
     events.map((entry, index) => (
@@ -44,6 +58,7 @@ const EventsList = ({ events }) => {
                 name="share-outline"
                 size={15}
                 color="rgba(255, 255, 255, 0.5)"
+                onPress={eventShare}
               />
             </View>
           </View>
