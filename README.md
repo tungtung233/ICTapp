@@ -16,5 +16,6 @@ for visitors to easily share an event with their contacts and through social med
 # Team
  - Iuliia Sutygina - Developer ([LinkedIn](https://www.linkedin.com/in/juliasut/) | [Github](https://github.com/juliasut))
  - Veronica Leung - Developer ([LinkedIn](https://www.linkedin.com/in/yi-tung-leung/) | [Github](https://github.com/tungtung233))
- - Jane Huntington - UI/UX Designer ([LinkedIn](https://www.linkedin.com/in/jane-huntington/))
+ - Jane Huntington - UI/UX Designer ([LinkedIn](https://www.linkedin.com/in/jane-huntington/) | [Portfolio](https://www.janehuntingtonux.com
+))
   
