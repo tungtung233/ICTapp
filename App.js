@@ -40,36 +40,46 @@ export default function App() {
   const CustomDrawerContent = ({ navigation }) => {
     return (
       <>
-        <View style={styles.header}>
-          <Ionicons
-            name="close-outline"
-            size={24}
-            color="#FFFFFF"
-            onPress={() => navigation.navigate('Homepage')}
-          />
-        </View>
-        <DrawerItem label="About" />
-        <View style={styles.divider} />
-        <DrawerItem
-          label="Membership"
-          onPress={() => navigation.navigate('Membership')}
-        />
-        <View style={styles.divider} />
-        <DrawerItem
-          label="Contact Us"
-          onPress={() => navigation.navigate('StayInTouch')}
-        />
-        <View style={styles.divider} />
-        <DrawerItem
-          label="Workshops"
-          onPress={() => navigation.navigate('Workshops')}
-        />
-        <View style={styles.divider} />
-        <DrawerItem label="Courses" />
-        <View style={styles.divider} />
-        <DrawerItem label="Resources" />
-        <View style={styles.footer}>
-          <ContactUs />
+        <View
+          style={{
+            height: '100%',
+            justifyContent: 'space-between',
+          }}
+        >
+          <View>
+            <View style={styles.header}>
+              <Ionicons
+                name='close-outline'
+                size={24}
+                color='#FFFFFF'
+                onPress={() => navigation.navigate('Homepage')}
+              />
+            </View>
+            <DrawerItem label='About' />
+            <View style={styles.divider} />
+            <DrawerItem
+              label='Membership'
+              onPress={() => navigation.navigate('Membership')}
+            />
+            <View style={styles.divider} />
+            <DrawerItem
+              label='Contact Us'
+              onPress={() => navigation.navigate('StayInTouch')}
+            />
+            <View style={styles.divider} />
+            <DrawerItem
+              label='Workshops'
+              onPress={() => navigation.navigate('Workshops')}
+            />
+            <View style={styles.divider} />
+            <DrawerItem label='Courses' />
+            <View style={styles.divider} />
+            <DrawerItem label='Resources' />
+            <View style={styles.divider} />
+          </View>
+          <View>
+            <ContactUs />
+          </View>
         </View>
       </>
     );
@@ -77,32 +87,26 @@ export default function App() {
 
   return fontsLoaded ? (
     <NavigationContainer>
-      <StatusBar style="auto" />
+      <StatusBar style='auto' />
       <Drawer.Navigator
-        initialRouteName="Homepage"
+        initialRouteName='Homepage'
         screenOptions={{
           drawerPosition: 'right',
           headerShown: false,
           drawerStyle: {
-            backgroundColor: '#FFFFFF',
+            backgroundColor: '#F6F6F6',
             width: width * 0.831,
           },
         }}
         drawerContent={(props) => <CustomDrawerContent {...props} />}
       >
+        <Drawer.Screen name='Homepage' component={Homepage} />
+        <Drawer.Screen name='Workshops' component={EventsPage} />
+        <Drawer.Screen name='EventDetailPage' component={EventDetailPage} />
+        <Drawer.Screen name='Membership' component={MembershipPage} />
+        <Drawer.Screen name='StayInTouch' component={StayInTouch} />
         <Drawer.Screen
-          name="Homepage"
-          component={Homepage}
-          options={{
-            drawerActiveBackgroundColor: 'red',
-          }}
-        />
-        <Drawer.Screen name="Workshops" component={EventsPage} />
-        <Drawer.Screen name="EventDetailPage" component={EventDetailPage} />
-        <Drawer.Screen name="Membership" component={MembershipPage} />
-        <Drawer.Screen name="StayInTouch" component={StayInTouch} />
-        <Drawer.Screen
-          name="StayInTouchConfirmationPage"
+          name='StayInTouchConfirmationPage'
           component={StayInTouchConfirmationPage}
         />
       </Drawer.Navigator>
@@ -113,11 +117,6 @@ export default function App() {
 }
 
 const styles = StyleSheet.create({
-  footer: {
-    backgroundColor: '#222D4D',
-    paddingTop: '8%',
-    flex: 1,
-  },
   divider: {
     borderBottomColor: '#222D4D',
     borderBottomWidth: 0.9,
