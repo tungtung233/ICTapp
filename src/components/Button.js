@@ -6,7 +6,7 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
-import { useNavigation } from '@react-navigation/native';
+import { useNavigation, CommonActions } from '@react-navigation/native';
 
 const { width } = Dimensions.get('window');
 
@@ -16,7 +16,16 @@ const Button = ({ text, linkLocation, ...params }) => {
   return (
     <TouchableOpacity
       activeOpacity={0.8}
-      onPress={() => navigation.navigate(linkLocation)}
+      onPress={() =>
+        navigation.dispatch(
+          CommonActions.navigate({
+            name: linkLocation,
+            params: {
+              timerSeconds: 5,
+            },
+          })
+        )
+      }
     >
       <View style={styles.container}>
         <Text style={styles.text}>{text}</Text>

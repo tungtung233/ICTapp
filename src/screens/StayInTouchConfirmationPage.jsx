@@ -6,12 +6,32 @@ import {
   Dimensions,
 } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import { useNavigation } from '@react-navigation/native';
+import { useEffect, useState } from 'react';
 
 import HeaderBar from '../components/HeaderBar';
 
 const { width, height } = Dimensions.get('window');
 
-export default function StayInTouchConfirmationPage() {
+export default function StayInTouchConfirmationPage({ route }) {
+  const [countDown, setCountDown] = useState(route.params.timerSeconds);
+
+  const navigation = useNavigation();
+
+  useEffect(() => {
+    setCountDown(route.params.timerSeconds)
+  }, [route])
+
+  useEffect(() => {
+    if (countDown > 0) {
+      setTimeout(() => setCountDown(countDown - 1), 1000);
+    }
+
+    if (countDown === 0) {
+      setTimeout(() => navigation.navigate('Homepage'), 1000);
+    }
+  }, [countDown]);
+
   return (
     <>
       <HeaderBar />
@@ -28,6 +48,10 @@ export default function StayInTouchConfirmationPage() {
             <Text style={styles.heading}>Thank you for subscribing!</Text>
             <Text style={styles.subheading}>
               We'll be in touch with news and events.
+            </Text>
+            <Text style={styles.redirect}>
+              {countDown > 0 &&
+                `Redirecting back to homepage in ${countDown}...`}
             </Text>
           </View>
         </ImageBackground>
@@ -72,6 +96,11 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     width: '70%',
     marginTop: 15,
-    marginBottom: 40,
   },
+  redirect: {
+    color: 'white',
+    fontSize: 15,
+    marginTop: 15,
+    marginBottom: 20,
+  }
 });

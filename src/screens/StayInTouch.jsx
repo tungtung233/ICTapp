@@ -106,7 +106,6 @@ const styles = StyleSheet.create({
     marginTop: 12,
   },
   container: {
-    height: '100%',
     justifyContent: 'flex-start',
     alignItems: 'flex-start',
     backgroundColor: '#F6F6F6',
