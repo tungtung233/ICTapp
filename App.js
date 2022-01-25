@@ -12,7 +12,6 @@ import {
   StayInTouchConfirmationPage,
 } from './src/screens';
 import ContactUs from './src/components/ContactUs.jsx';
-import { OpenTermsConditions } from './src/components/ContactUs.jsx';
 import {
   useFonts,
   Inter_400Regular,
