@@ -2,7 +2,7 @@ import React from 'react';
 import 'react-native-gesture-handler';
 import AppLoading from 'expo-app-loading';
 import { Dimensions, StatusBar, StyleSheet, View } from 'react-native';
-import { Ionicons } from '@expo/vector-icons';
+import { MaterialIcons } from '@expo/vector-icons';
 import {
   EventsPage,
   EventDetailPage,
@@ -47,11 +47,11 @@ export default function App() {
         >
           <View>
             <View style={styles.header}>
-              <Ionicons
-                name='close-outline'
-                size={24}
+              <MaterialIcons
+                name='arrow-forward-ios'
+                size={18}
                 color='#FFFFFF'
-                onPress={() => navigation.navigate('Homepage')}
+                onPress={() => navigation.closeDrawer()}
               />
             </View>
             <DrawerItem label='About' />
@@ -126,7 +126,6 @@ const styles = StyleSheet.create({
     backgroundColor: '#222D4D',
     height: 50,
     justifyContent: 'center',
-    alignItems: 'flex-end',
-    paddingRight: 15,
+    paddingLeft: 15,
   },
 });
