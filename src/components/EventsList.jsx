@@ -11,17 +11,16 @@ import {
 import { useNavigation } from '@react-navigation/native';
 import { Ionicons } from '@expo/vector-icons';
 
-const { width } = Dimensions.get('window');
-
 const EventsList = ({ events }) => {
   const navigation = useNavigation();
 
   const eventShare = async () => {
     try {
       const result = await Share.share({
-        title: 'ICT event',
+        title: 'ICT event - Find Your Best Work',
         message:
-          'I thought you might be interested in this ICT event \n' +
+          'I thought you might be interested in this ICT event! \n\n' +
+          'Check this out:\n\n' +
           'https://www.eventbrite.com/e/sharing-stories-of-strengths-tickets-201101077737?aff=ebdsoporgprofile',
       });
     } catch (error) {
@@ -59,6 +58,7 @@ const EventsList = ({ events }) => {
                 size={15}
                 color="rgba(255, 255, 255, 0.5)"
                 onPress={eventShare}
+                style={{marginRight: 10}}
               />
             </View>
           </View>
