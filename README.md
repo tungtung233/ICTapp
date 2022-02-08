@@ -8,6 +8,9 @@ A few issues we wanted to tackle included bringing clarity to their offerings (w
 clearly indicate Membership benefits and showcase events. One of the main ways that they gain new customers is through word of mouth, so we wanted to incorporate ways 
 for visitors to easily share an event with their contacts and through social media, and also easily contact ICT. 
 
+# Screenshots
+![ICTapp](https://github.com/tungtung233/ICTapp/blob/main/docs/ICTapp.gif?raw=true)
+
 # Attribution
 [ICT (Institute for Career Transitions)](https://www.ictransitions.org/)
 
